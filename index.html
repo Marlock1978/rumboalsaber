@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumbo al Saber</title>
-<meta name="version" content="rumbo-web-R10 demo-V.1.19">
+<meta name="version" content="rumbo-web-R12 demo-V.1.19">
 <meta name="description" content="Rumbo al Saber: la app que acompaña a tu hijo en 4.º de Primaria. Currículo oficial LOMLOE explicado con infografías y voz, seguimiento para la familia, ajustes para la dislexia y el TDAH, sin anuncios. Una plataforma que suma un curso nuevo cada año.">
 <link rel="icon" href="img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -818,6 +818,21 @@ h1.mask,h2.mask{opacity:1!important;transform:none!important}
 .about .sign .mail{margin:10px 0 0;font-weight:800}
 .about .sign .mail a{color:var(--clay-d);text-decoration:underline;text-underline-offset:3px}
 footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- R11 ---------- */
+.stage .serena{position:absolute;right:-2%;bottom:0;width:178px;z-index:4;transform-origin:50% 100%;animation:sway 5.6s ease-in-out -1.5s infinite;filter:saturate(1.16) contrast(1.05)}
+@media(max-width:560px){.stage .serena{width:140px;right:-4%}}
+.mailbtn{display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:8px 20px 8px 10px;border-radius:999px;text-decoration:none;
+  background:var(--paper);color:var(--ink);font:800 16px var(--body);border:1px solid var(--line);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.7),0 5px 0 #d9c7aa,0 10px 14px -8px rgba(80,40,15,.4);transition:transform .15s,box-shadow .15s;max-width:100%}
+.mailbtn:hover{transform:translateY(-2px)}
+.mailbtn:active{transform:translateY(4px);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),0 1px 0 #d9c7aa}
+.mailbtn img{width:52px;height:auto;flex:none;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.mailbtn:hover img{transform:rotate(-8deg) scale(1.08)}
+.mailbtn span{overflow-wrap:anywhere}
+
+/* ---------- R12 ---------- */
+.scene.wide.clase{aspect-ratio:1376/768}
 </style>
 </head>
 <body>
@@ -904,6 +919,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="stage" id="stage">
       <div class="phone" data-depth="12"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="home" alt="Pantalla de inicio real de la app"></div></div>
       <img class="andreu" data-depth="22" src="img/app/tut_social_b0.webp" alt="Bram, el cartógrafo, con su mapa, la brújula y la mochila">
+      <img class="serena" data-depth="18" src="img/app/hero_serena.webp" alt="Serena, pensativa, con su bastón y su gato">
       <div class="floatc" data-depth="34" style="left:16%;top:40px;--b:5s"><div class="c3d spin" data-coin style="--s:74px;--t:8px;--d:6s"></div></div>
       <div class="floatc" data-depth="40" style="right:2%;top:200px;--b:6s;animation-delay:-2s"><div class="c3d spin" data-coin style="--s:58px;--t:7px;--d:5s;animation-delay:-1s"></div></div>
       <div class="floatc" data-depth="28" style="right:10%;bottom:70px;--b:4.5s;animation-delay:-1s"><div class="c3d spin" data-coin style="--s:46px;--t:6px;--d:4.2s;animation-delay:-2s"></div></div>
@@ -924,7 +940,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       </div>
       <p class="lead reveal d2" data-ca="Rumbo al Saber no substitueix l'escola ni la família: us dona una eina per acompanyar l'estudi de cada dia, amb el mateix temari que es fa a classe.">Rumbo al Saber no sustituye al colegio ni a la familia: os da una herramienta para acompañar el estudio de cada día, con el mismo temario que se da en clase.</p>
     </div>
-    <figure class="scene wide reveal"><img loading="lazy" decoding="async" src="img/deco/familia_cocina.webp" alt="Un niño estudia con la app en la cocina mientras Bram y Serena le ayudan y su madre le mira"></figure>
+    <figure class="scene wide reveal"><img loading="lazy" decoding="async" src="img/deco/autonomia.webp" alt="Un niño estudia solo con la tableta en la cocina mientras Bram y Serena le ayudan y su padre le mira tranquilo"></figure>
     <div class="fam vent">
       <div class="feat reveal"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_estudia.webp" alt=""></div><h3 data-ca="Estudia sol, sense perdre's">Estudia solo, sin perderse</h3><p data-ca="Cada unitat explica abans de preguntar: infografia, text i veu que llegeix en veu alta. Pot repassar sense que un adult li hagi de tornar a explicar tot.">Cada unidad explica antes de preguntar: infografía, texto y una voz que lo lee en voz alta. Puede repasar sin que un adulto tenga que volver a explicárselo todo.</p></div>
       <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_colegio.webp" alt=""></div><h3 data-ca="Al ritme de l'escola">Al ritmo del colegio</h3><p data-ca="Des del mode tutor marcau el tema que es fa a classe («Ara a classe») i l'app obre aquella lliçó al mapa per repassar-la la mateixa setmana.">Desde el modo tutor marcáis el tema que se está dando en clase («Ahora en clase») y la app abre esa lección en el mapa para repasarla esa misma semana.</p></div>
@@ -968,7 +984,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       </article>
     </div>
     <div class="repesca reveal">
-      <img loading="lazy" decoding="async" src="img/app/tut_natural_s3.webp" alt="Serena ordenando una serie de baldosas con su gato">
+      <img loading="lazy" decoding="async" src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
       <div>
         <h3 data-ca="Equivocar-se també ensenya">Equivocarse también enseña</h3>
         <p data-ca="Les preguntes fallades tornen al final en una repesca. La nota es calcula amb la primera resposta: la repesca serveix per entendre, no per maquillar el resultat.">Las preguntas falladas vuelven al final en una repesca. La nota se calcula con la primera respuesta: la repesca sirve para entender, no para maquillar el resultado.</p>
@@ -1298,11 +1314,12 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <div class="who"><div></div><div style="text-align:right"><span class="role" data-ca="La naturalista">La naturalista</span><h3>Serena</h3></div></div>
         <div class="bubble-row"><div class="bubble"></div></div>
         <div class="fig">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_s0.webp" alt="Serena con el ábaco" class="on">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_s1.webp" alt="Serena con dados y un gráfico de barras">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_s2.webp" alt="Serena con cuerpos geométricos">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_s3.webp" alt="Serena ordenando una serie de baldosas">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_s4.webp" alt="Serena midiendo con una cinta métrica y una balanza">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_piensa.webp" alt="Serena pensando, con la mano en la barbilla" class="on">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_senala.webp" alt="Serena agachada señalando una pista">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_rie.webp" alt="Serena riendo, abrazada a su bastón">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_salta.webp" alt="Serena saltando de alegría con su gato">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_calma.webp" alt="Serena sentada, respirando con calma, con su gato">
+          <img loading="lazy" decoding="async" src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
         </div>
         <div class="poses"></div>
       </article>
@@ -1450,8 +1467,8 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <span class="eyebrow reveal" data-ca="Per a famílies i escoles">Para familias y escuelas</span>
         <h2 class="reveal d1" data-ca="Pensada per a casa, <em>útil a l'aula.</em>">Pensada para casa, <em>útil en el aula.</em></h2>
       </div>
-      <figure class="scene tall reveal d1"><img loading="lazy" decoding="async" data-par="30" src="img/deco/nino_portatil.webp" alt="Un niño estudia con el portátil en casa acompañado de Bram y Serena"></figure>
     </div>
+    <figure class="scene wide clase reveal"><img loading="lazy" decoding="async" src="img/deco/casa_clase.webp" alt="A la izquierda, un niño repasa en casa con la app, Bram y Serena; a la derecha, al día siguiente, levanta la mano en clase para responder una división en la pizarra"></figure>
     <div class="fam">
       <div class="feat reveal"><div class="ic"><img loading="lazy" decoding="async" src="img/libro.webp" alt=""></div><h3 data-ca="Sense internet">Sin internet</h3><p data-ca="Un cop instal·lada, funciona sense connexió i sense comptes. Les dades es queden al dispositiu.">Una vez instalada, funciona sin conexión y sin cuentas. Los datos se quedan en el dispositivo.</p></div>
       <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/pets/pet_43.webp" alt="El mini robot"></div><h3 data-ca="Un perfil per infant">Un perfil por niño</h3><p data-ca="Cada un amb el seu progrés, el seu personatge, les seves mascotes i el seu moneder.">Cada uno con su progreso, su personaje, sus mascotas y su monedero.</p></div>
@@ -1484,7 +1501,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <p class="name">Andrés Sáez Martínez</p>
         <span class="role" data-ca="Creador de Rumbo al Saber">Creador de Rumbo al Saber</span>
         <p class="bio" data-ca="Llicenciat en Belles Arts per la Universitat Politècnica de València (2005), compta amb 19 anys d'experiència com a dissenyador gràfic i 10 com a il·lustrador professional.">Licenciado en Bellas Artes por la Universitat Politècnica de València (2005), cuenta con 19 años de experiencia como diseñador gráfico y 10 como ilustrador profesional.</p>
-        <p class="mail"><a href="mailto:hola@rumboalsaber.app">hola@rumboalsaber.app</a></p>
+        <a class="mailbtn" href="mailto:hola@rumboalsaber.app"><img loading="lazy" decoding="async" src="img/deco/sobre.webp" alt=""><span>hola@rumboalsaber.app</span></a>
       </div>
       <div class="facts reveal d3">
         <div><b>19</b><span data-ca="anys de disseny gràfic">años de diseño gráfico</span></div>
@@ -1537,7 +1554,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
   <div class="logos">
     <img loading="lazy" decoding="async" class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
   </div>
-  <small>© 2026 Rumbo al Saber · <span data-ca="Web R10">Web R10</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a></small>
+  <small>© 2026 Rumbo al Saber · <span data-ca="Web R12">Web R12</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a></small>
 </footer>
 
 <script>
@@ -1734,11 +1751,12 @@ const POSES={
   {es:'Estudia',ca:'Estudia',sa:'Primero lo entendemos, después lo demostramos.',sc:'Primer ho entenem, després ho demostram.'},
   {es:'Observa',ca:'Observa',sa:'Un buen científico mira con atención.',sc:'Un bon científic mira amb atenció.'}],
  serena:[
-  {es:'Cuenta',ca:'Compta',sa:'Con el ábaco, los números grandes son fáciles.',sc:'Amb l\'àbac, els nombres grans són fàcils.'},
-  {es:'Datos',ca:'Dades',sa:'¿Qué sale más? Lo apuntamos en un gráfico.',sc:'Què surt més? Ho apuntam en un gràfic.'},
-  {es:'Formas',ca:'Formes',sa:'Un cubo, un cilindro y una esfera.',sc:'Un cub, un cilindre i una esfera.'},
-  {es:'Series',ca:'Sèries',sa:'Rojo, azul, amarillo… ¿cuál va ahora?',sc:'Vermell, blau, groc… quin toca ara?'},
-  {es:'Mide',ca:'Mesura',sa:'Medimos, pesamos y comparamos.',sc:'Mesuram, pesam i comparam.'}]
+  {es:'Piensa',ca:'Pensa',sa:'Mmm… ¿y si lo pensamos paso a paso?',sc:'Mmm… i si ho pensam pas a pas?'},
+  {es:'Pista',ca:'Pista',sa:'Fíjate aquí: la pista está en este número.',sc:'Fixa-t\'hi: la pista és en aquest nombre.'},
+  {es:'¡Bien!',ca:'Bé!',sa:'¡Muy bien! Lo has entendido.',sc:'Molt bé! Ho has entès.'},
+  {es:'¡Hurra!',ca:'Visca!',sa:'¡Reto superado! Hasta mi gato salta.',sc:'Repte superat! Fins i tot el meu moix bota.'},
+  {es:'Calma',ca:'Calma',sa:'Respira hondo. Con calma sale mejor.',sc:'Respira fondo. Amb calma surt millor.'},
+  {es:'¡Ups!',ca:'Ups!',sa:'¡Ups! Equivocarse también enseña.',sc:'Ups! Equivocar-se també ensenya.'}]
 };
 const tutors=$$('.tutor').map(card=>{
   const key=card.dataset.tutor,imgs=$$('.fig img',card),bub=$('.bubble',card),bar=$('.poses',card);
