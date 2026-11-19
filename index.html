@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumbo al Saber</title>
-<meta name="version" content="rumbo-web-R13 demo-V.1.19">
+<meta name="version" content="rumbo-web-R14 demo-V.1.19">
 <meta name="description" content="Rumbo al Saber: la app que acompaña a tu hijo en 4.º de Primaria. Currículo oficial LOMLOE explicado con infografías y voz, seguimiento para la familia, ajustes para la dislexia y el TDAH, sin anuncios. Una plataforma que suma un curso nuevo cada año.">
 <link rel="icon" href="img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -830,6 +830,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 .mailbtn img{width:52px;height:auto;flex:none;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .mailbtn:hover img{transform:rotate(-8deg) scale(1.08)}
 .mailbtn span{overflow-wrap:anywhere}
+.about .contact-t{margin:0;font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-d)}
+.about .contact{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+.igbtn .igic{display:grid;place-items:center;width:46px;height:46px;margin:3px;flex:none;border-radius:14px;background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%);box-shadow:inset 0 2px 0 rgba(255,255,255,.35);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.igbtn .igic svg{width:28px;height:28px}
+.igbtn:hover .igic{transform:rotate(-8deg) scale(1.08)}
 
 /* ---------- R12 ---------- */
 .scene.wide.clase{aspect-ratio:1376/768}
@@ -1498,15 +1503,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="story reveal d2" data-ca="Amb el temps, el projecte es va obrir a qualsevol alumne, sobretot als que troben més obstacles per aprendre, com els infants amb dislèxia, TDAH o autisme. Per això l'app llegeix en veu alta, il·lumina cada paraula, deixa regular la velocitat i la mida de la lletra, i proposa una pràctica sense pressió on equivocar-se forma part del camí.">Con el tiempo, el proyecto se abrió a cualquier alumno, sobre todo a quienes encuentran más obstáculos para aprender, como los niños con dislexia, TDAH o autismo. Por eso la app lee en voz alta, ilumina cada palabra, deja regular la velocidad y el tamaño de la letra, y propone una práctica sin presión donde equivocarse forma parte del camino.</p>
       <blockquote class="quote reveal d2" data-ca="Aprendre jugant és la manera més natural i motivadora d'aprendre.">Aprender jugando es la manera más natural y motivadora de aprender.</blockquote>
       <div class="sign reveal d3">
-        <p class="name">Andrés Sáez Martínez</p>
-        <span class="role" data-ca="Creador de Rumbo al Saber">Creador de Rumbo al Saber</span>
-        <p class="bio" data-ca="Llicenciat en Belles Arts per la Universitat Politècnica de València (2005), compta amb 19 anys d'experiència com a dissenyador gràfic i 10 com a il·lustrador professional.">Licenciado en Bellas Artes por la Universitat Politècnica de València (2005), cuenta con 19 años de experiencia como diseñador gráfico y 10 como ilustrador profesional.</p>
-        <a class="mailbtn" href="mailto:hola@rumboalsaber.app"><img loading="lazy" decoding="async" src="img/deco/sobre.webp" alt=""><span>hola@rumboalsaber.app</span></a>
-      </div>
-      <div class="facts reveal d3">
-        <div><b>19</b><span data-ca="anys de disseny gràfic">años de diseño gráfico</span></div>
-        <div><b>10</b><span data-ca="anys d'il·lustració">años de ilustración</span></div>
-        <div><b data-ca="BBAA">BB. AA.</b><span data-ca="Llicenciat en Belles Arts · UPV">Licenciado en Bellas Artes · UPV</span></div>
+        <p class="contact-t" data-ca="Contacte">Contacto</p>
+        <div class="contact">
+          <a class="mailbtn" href="mailto:hola@rumboalsaber.app"><img loading="lazy" decoding="async" src="img/deco/sobre.webp" alt=""><span>hola@rumboalsaber.app</span></a>
+          <a class="mailbtn igbtn" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber" data-ca-aria="Instagram de Rumbo al Saber: @cole.rumboalsaber"><i class="igic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="#fff"/></svg></i><span>@cole.rumboalsaber</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -1554,7 +1555,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
   <div class="logos">
     <img loading="lazy" decoding="async" class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
   </div>
-  <small>© 2026 Rumbo al Saber · <span data-ca="Web R13">Web R13</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a></small>
+  <small>© 2026 Rumbo al Saber · <span data-ca="Web R14">Web R14</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a></small>
 </footer>
 
 <script>
