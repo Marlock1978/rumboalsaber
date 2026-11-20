@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumbo al Saber</title>
-<meta name="version" content="rumbo-web-R14 demo-V.1.19">
+<meta name="version" content="rumbo-web-R17 demo-V.1.19">
 <meta name="description" content="Rumbo al Saber: la app que acompaña a tu hijo en 4.º de Primaria. Currículo oficial LOMLOE explicado con infografías y voz, seguimiento para la familia, ajustes para la dislexia y el TDAH, sin anuncios. Una plataforma que suma un curso nuevo cada año.">
 <link rel="icon" href="img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -370,17 +370,19 @@ nav ul.more a{display:block;font-size:16px;padding:10px 14px}
 .poses button{border:0;cursor:pointer;background:rgba(251,247,240,.75);font:800 14px var(--body);color:var(--ink2);padding:9px 14px;border-radius:99px;transition:all .2s}
 .poses button:hover{background:var(--paper);color:var(--ink)}
 .poses button.on{background:var(--ink);color:var(--cream)}
-.friends{margin-top:70px;display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center}
-.friends h3{font-size:34px;max-width:9em}
-.friends .row{display:flex;gap:18px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap}
-.friend{text-align:center;flex:1;min-width:120px}
-.friend img{height:160px;width:auto;margin:0 auto;transition:transform .4s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 12px 12px rgba(60,30,10,.18))}
+.friends{margin-top:70px;display:flex;flex-direction:column;align-items:center;gap:34px}
+.friends h3{font-size:34px;text-align:center;display:flex;align-items:center;gap:22px;width:100%;max-width:none}
+.friends h3::before,.friends h3::after{content:"";flex:1;height:2px;background:currentColor;opacity:.22;border-radius:2px}
+.friends .row{display:flex;gap:26px 40px;justify-content:center;align-items:flex-end;flex-wrap:wrap;width:100%}
+.friend{text-align:center;flex:0 1 auto;min-width:120px}
+.friend img{height:160px;width:auto;max-width:100%;object-fit:contain;margin:0 auto;transition:transform .4s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 12px 12px rgba(60,30,10,.18))}
 .friend.big1 img{height:212px}
 .friend.big2 img{height:190px}
+.friend.eva img{height:213px} /* su mano alzada a la altura de la de Marta */
 .friend:hover img{transform:translateY(-12px) rotate(-3deg) scale(1.05)}
 .friend b{display:block;font:700 19px var(--display);margin-top:8px}
 .friend span{font-size:13px;color:var(--ink2);font-weight:700}
-@media(max-width:900px){.tutors{grid-template-columns:1fr}.tutor .fig{height:340px}.tutor .fig img{height:310px}.bubble{max-width:92%;font-size:19px}.t-a .bubble{margin-left:6%}.t-b .bubble{margin-right:6%}.friends{grid-template-columns:1fr}}
+@media(max-width:900px){.tutors{grid-template-columns:1fr}.tutor .fig{height:340px}.tutor .fig img{height:310px}.bubble{max-width:92%;font-size:19px}.t-a .bubble{margin-left:6%}.t-b .bubble{margin-right:6%}.friends h3{font-size:28px}}
 
 /* ---------- MASCOTAS ---------- */
 .petsec{background:linear-gradient(180deg,transparent,rgba(170,180,120,.12) 40%,transparent)}
@@ -817,6 +819,8 @@ h1.mask,h2.mask{opacity:1!important;transform:none!important}
 /* ---------- R10 ---------- */
 .about .sign .mail{margin:10px 0 0;font-weight:800}
 .about .sign .mail a{color:var(--clay-d);text-decoration:underline;text-underline-offset:3px}
+footer .ftig{display:flex;width:max-content;margin:8px auto 0;align-items:center;gap:6px;white-space:nowrap}
+footer .ftig svg{width:17px;height:17px;flex:none}
 footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- R11 ---------- */
@@ -839,6 +843,8 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 /* ---------- R12 ---------- */
 .scene.wide.clase{aspect-ratio:1376/768}
 </style>
+<!-- Cloudflare Web Analytics: sin cookies; solo cuenta visitas en rumboalsaber.app -->
+<script>(function(t){if(location.hostname!=="rumboalsaber.app"||t.indexOf("PON-")===0)return;var e=document.createElement("script");e.defer=true;e.src="https://static.cloudflareinsights.com/beacon.min.js";e.setAttribute("data-cf-beacon",JSON.stringify({token:t}));document.head.appendChild(e)})("PON-AQUI-EL-TOKEN");</script>
 </head>
 <body>
 
@@ -915,7 +921,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <a class="btn ghost" href="#app" data-ca="Mira l'app per dins">Mira la app por dentro</a>
       </div>
       <div class="chips reveal d3">
-        <span class="chip"><b>44</b> <span data-ca="unitats del currículum oficial">unidades del currículo oficial</span></span>
+        <span class="chip"><b>53</b> <span data-ca="unitats del currículum oficial">unidades del currículo oficial</span></span>
         <span class="chip"><b>0</b> <span data-ca="anuncis">anuncios</span></span>
         <span class="chip"><b>+1</b> <span data-ca="curs nou cada any">curso nuevo cada año</span></span>
       </div>
@@ -945,14 +951,14 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       </div>
       <p class="lead reveal d2" data-ca="Rumbo al Saber no substitueix l'escola ni la família: us dona una eina per acompanyar l'estudi de cada dia, amb el mateix temari que es fa a classe.">Rumbo al Saber no sustituye al colegio ni a la familia: os da una herramienta para acompañar el estudio de cada día, con el mismo temario que se da en clase.</p>
     </div>
-    <figure class="scene wide reveal"><img loading="lazy" decoding="async" src="img/deco/autonomia.webp" alt="Un niño estudia solo con la tableta en la cocina mientras Bram y Serena le ayudan y su padre le mira tranquilo"></figure>
+    <figure class="scene wide reveal"><img src="img/deco/autonomia.webp" alt="Un niño estudia solo con la tableta en la cocina mientras Bram y Serena le ayudan y su padre le mira tranquilo"></figure>
     <div class="fam vent">
-      <div class="feat reveal"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_estudia.webp" alt=""></div><h3 data-ca="Estudia sol, sense perdre's">Estudia solo, sin perderse</h3><p data-ca="Cada unitat explica abans de preguntar, amb infografia, text i una veu que ho llegeix. Així pot repassar sense que un adult li hagi de tornar a explicar tot.">Cada unidad explica antes de preguntar, con infografía, texto y una voz que lo lee. Así puede repasar sin que un adulto tenga que volver a explicárselo todo.</p></div>
-      <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_colegio.webp" alt=""></div><h3 data-ca="Al ritme de l'escola">Al ritmo del colegio</h3><p data-ca="Des del mode tutor marcau el tema que es fa a classe («Ara a classe») i l'app obre aquella lliçó al mapa per repassar-la la mateixa setmana.">Desde el modo tutor marcáis el tema que se está dando en clase («Ahora en clase») y la app abre esa lección en el mapa para repasarla esa misma semana.</p></div>
-      <div class="feat reveal d2"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_ayuda.webp" alt=""></div><h3 data-ca="Sabeu on necessita ajuda">Sabéis dónde necesita ayuda</h3><p data-ca="Veieu la seva nota de l'1 al 10, les unitats i preguntes que més li costen i les lliçons que deixa a mitges, que poden indicar frustració.">Veis su nota del 1 al 10, las unidades y preguntas que más le cuestan y las lecciones que deja a medias, que pueden indicar frustración.</p></div>
-      <div class="feat reveal"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_valores.webp" alt=""></div><h3 data-ca="Motivació amb valors">Motivación con valores</h3><p data-ca="Les monedes es guanyen amb esforç i es bescanvien per premis que pactau a casa. Així aprèn a estalviar i a esperar.">Las monedas se ganan con esfuerzo y se canjean por premios que pactáis en casa. Así aprende a ahorrar y a esperar.</p></div>
-      <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_adapta.webp" alt=""></div><h3 data-ca="S'adapta a cada infant">Se adapta a cada niño</h3><p data-ca="Lletra més gran o «escrita a mà», més espai per llegir, exercicis sense rellotge i pantalla sense moviment: ajustos pensats per a la dislèxia, el TDAH o l'autisme, guardats per a cada perfil.">Letra más grande o «escrita a mano», más espacio para leer, ejercicios sin reloj y pantalla sin movimiento: ajustes pensados para la dislexia, el TDAH o el autismo, guardados para cada perfil.</p></div>
-      <div class="feat reveal d2"><div class="ic"><img loading="lazy" decoding="async" src="img/deco/icn_segura.webp" alt=""></div><h3 data-ca="Segura i sense distraccions">Segura y sin distracciones</h3><p data-ca="Sense anuncis, sense xats ni desconeguts i sense recollir dades personals. El progrés es queda al dispositiu de la família.">Sin anuncios, sin chats ni desconocidos y sin recoger datos personales. El progreso se queda en el dispositivo de la familia.</p></div>
+      <div class="feat reveal"><div class="ic"><img src="img/deco/icn_estudia.webp" alt=""></div><h3 data-ca="Estudia sol, sense perdre's">Estudia solo, sin perderse</h3><p data-ca="Cada unitat explica abans de preguntar, amb infografia, text i una veu que ho llegeix. Així pot repassar sense que un adult li hagi de tornar a explicar tot.">Cada unidad explica antes de preguntar, con infografía, texto y una voz que lo lee. Así puede repasar sin que un adulto tenga que volver a explicárselo todo.</p></div>
+      <div class="feat reveal d1"><div class="ic"><img src="img/deco/icn_colegio.webp" alt=""></div><h3 data-ca="Al ritme de l'escola">Al ritmo del colegio</h3><p data-ca="Des del mode tutor marcau el tema que es fa a classe («Ara a classe») i l'app obre aquella lliçó al mapa per repassar-la la mateixa setmana.">Desde el modo tutor marcáis el tema que se está dando en clase («Ahora en clase») y la app abre esa lección en el mapa para repasarla esa misma semana.</p></div>
+      <div class="feat reveal d2"><div class="ic"><img src="img/deco/icn_ayuda.webp" alt=""></div><h3 data-ca="Sabeu on necessita ajuda">Sabéis dónde necesita ayuda</h3><p data-ca="Veieu la seva nota de l'1 al 10, les unitats i preguntes que més li costen i les lliçons que deixa a mitges, que poden indicar frustració.">Veis su nota del 1 al 10, las unidades y preguntas que más le cuestan y las lecciones que deja a medias, que pueden indicar frustración.</p></div>
+      <div class="feat reveal"><div class="ic"><img src="img/deco/icn_valores.webp" alt=""></div><h3 data-ca="Motivació amb valors">Motivación con valores</h3><p data-ca="Les monedes es guanyen amb esforç i es bescanvien per premis que pactau a casa. Així aprèn a estalviar i a esperar.">Las monedas se ganan con esfuerzo y se canjean por premios que pactáis en casa. Así aprende a ahorrar y a esperar.</p></div>
+      <div class="feat reveal d1"><div class="ic"><img src="img/deco/icn_adapta.webp" alt=""></div><h3 data-ca="S'adapta a cada infant">Se adapta a cada niño</h3><p data-ca="Lletra més gran o «escrita a mà», més espai per llegir, exercicis sense rellotge i pantalla sense moviment: ajustos pensats per a la dislèxia, el TDAH o l'autisme, guardats per a cada perfil.">Letra más grande o «escrita a mano», más espacio para leer, ejercicios sin reloj y pantalla sin movimiento: ajustes pensados para la dislexia, el TDAH o el autismo, guardados para cada perfil.</p></div>
+      <div class="feat reveal d2"><div class="ic"><img src="img/deco/icn_segura.webp" alt=""></div><h3 data-ca="Segura i sense distraccions">Segura y sin distracciones</h3><p data-ca="Sense anuncis, sense xats ni desconeguts i sense recollir dades personals. El progrés es queda al dispositiu de la família.">Sin anuncios, sin chats ni desconocidos y sin recoger datos personales. El progreso se queda en el dispositivo de la familia.</p></div>
     </div>
   </div>
 </section>
@@ -971,25 +977,25 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="steps">
       <article class="step reveal" style="--bg:#f0d7c4">
         <span class="num">1</span>
-        <div class="fig"><img loading="lazy" decoding="async" src="img/app/tut_social_b4.webp" alt="Bram cargado de libros"></div>
+        <div class="fig"><img src="img/app/tut_social_b4.webp" alt="Bram cargado de libros"></div>
         <h3 data-ca="Lliçó">Lección</h3>
         <p data-ca="Una infografia i un text que es pot escoltar en veu alta, amb la paraula il·luminada i la velocitat regulable.">Una infografía y un texto que se puede escuchar en voz alta, con la palabra iluminada y la velocidad regulable.</p>
       </article>
       <article class="step reveal d1" style="--bg:#e3e0c4">
         <span class="num">2</span>
-        <div class="fig"><img loading="lazy" decoding="async" src="img/deco/step_muneco.webp" alt="El muñeco de prácticas de madera, con espada y escudo"></div>
+        <div class="fig"><img src="img/deco/step_muneco.webp" alt="El muñeco de prácticas de madera, con espada y escudo"></div>
         <h3 data-ca="Pràctica">Práctica</h3>
         <p data-ca="Amb pistes de les mascotes i sense pressió. Una veu el felicita pel seu nom quan encerta i, si falla, li diu «espera, ho repassam» i li llegeix l'explicació.">Con pistas de las mascotas y sin presión. Una voz lo felicita por su nombre cuando acierta y, si falla, le dice «espera, vamos a repasarlo» y le lee la explicación.</p>
       </article>
       <article class="step reveal d2" style="--bg:#efdcb8">
         <span class="num">3</span>
-        <div class="fig"><img loading="lazy" decoding="async" src="img/deco/step_leon.webp" alt="Un león guerrero, la criatura del reto"></div>
+        <div class="fig"><img src="img/deco/step_leon.webp" alt="Un león guerrero, la criatura del reto"></div>
         <h3 data-ca="Repte">Reto</h3>
         <p data-ca="És el que puntua. Abans de començar, un repàs amb la infografia i el seu text, que es pot escoltar; durant les preguntes el text desapareix (llevat de les lectures de comprensió): així sabem què s'ha entès de veritat.">Es lo que puntúa. Antes de empezar, un repaso con la infografía y su texto, que se puede escuchar; durante las preguntas el texto desaparece (salvo en las lecturas de comprensión): así sabemos qué se ha entendido de verdad.</p>
       </article>
     </div>
     <div class="repesca reveal">
-      <img loading="lazy" decoding="async" src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
+      <img src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
       <div>
         <h3 data-ca="Equivocar-se també ensenya">Equivocarse también enseña</h3>
         <p data-ca="Les preguntes fallades tornen al final en una repesca. La nota es calcula amb la primera resposta, així que la repesca serveix per entendre l'error sense canviar el resultat.">Las preguntas falladas vuelven al final en una repesca. La nota se calcula con la primera respuesta, así que la repesca sirve para entender el error sin cambiar el resultado.</p>
@@ -1005,35 +1011,38 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="sec-head">
       <div>
         <span class="eyebrow reveal" data-ca="Temari oficial de 4t">Temario oficial de 4.º</span>
-        <h2 class="reveal d1" data-ca="44 unitats, <em>tot el curs.</em>">44 unidades, <em>todo el curso.</em></h2>
+        <h2 class="reveal d1" data-ca="53 unitats, <em>tot el curs.</em>">53 unidades, <em>todo el curso.</em></h2>
       </div>
       <p class="lead reveal d2" data-ca="Cada unitat segueix els sabers bàsics del currículum oficial de la LOMLOE per a 4t de Primària, el segon curs del segon cicle, i s'agrupa en els mateixos blocs que marca la normativa, perquè qualsevol mestre reconegui on encaixa cada cosa. Aquesta primera versió s'ha contrastat, saber per saber, amb el currículum de les Illes Balears; les adaptacions als currículums d'altres comunitats arribaran més endavant.">Cada unidad sigue los saberes básicos del currículo oficial de la LOMLOE para 4.º de Primaria, el segundo curso del segundo ciclo, y se agrupa en los mismos bloques que marca la normativa, para que cualquier maestro reconozca dónde encaja cada cosa. Esta primera versión se ha contrastado, saber por saber, con el currículo de las Illes Balears; las adaptaciones a los currículos de otras comunidades llegarán más adelante.</p>
     </div>
     <div class="subjects reveal" style="margin:0 0 34px">
-      <div class="s"><img loading="lazy" decoding="async" src="img/app/arc_medi.webp" alt=""><div><b data-ca="Coneixement del Medi">Conocimiento del Medio</b><small data-ca="Disponible">Disponible</small></div></div>
-      <div class="s"><img loading="lazy" decoding="async" src="img/app/arc_mates.webp" alt=""><div><b data-ca="Matemàtiques">Matemáticas</b><small data-ca="Disponible">Disponible</small></div></div>
-      <div class="s"><img loading="lazy" decoding="async" src="img/app/flag_es.webp" alt="Bandera de España"><div><b>Lengua Castellana</b><small data-ca="Disponible">Disponible</small></div></div>
-      <div class="s"><img loading="lazy" decoding="async" src="img/app/flag_en.webp" alt="Bandera del Reino Unido"><div><b data-ca="Anglès">Inglés</b><small data-ca="Disponible">Disponible</small></div></div>
-      <div class="s later"><img loading="lazy" decoding="async" src="img/app/flag_ca.webp" alt="Bandera catalana"><div><b data-ca="Català">Catalán</b><small data-ca="Aviat">Próximamente</small></div></div>
+      <div class="s"><img src="img/app/arc_medi.webp" alt=""><div><b data-ca="Coneixement del Medi">Conocimiento del Medio</b><small data-ca="Disponible">Disponible</small></div></div>
+      <div class="s"><img src="img/app/arc_mates.webp" alt=""><div><b data-ca="Matemàtiques">Matemáticas</b><small data-ca="Disponible">Disponible</small></div></div>
+      <div class="s"><img src="img/app/flag_es.webp" alt="Bandera de España"><div><b>Lengua Castellana</b><small data-ca="Disponible">Disponible</small></div></div>
+      <div class="s"><img src="img/app/flag_en.webp" alt="Bandera del Reino Unido"><div><b data-ca="Anglès">Inglés</b><small data-ca="Disponible">Disponible</small></div></div>
+      <div class="s"><img src="img/app/flag_ca.webp" alt="Bandera catalana"><div><b data-ca="Llengua Catalana">Lengua Catalana</b><small data-ca="Disponible">Disponible</small></div></div>
     </div>
 
     <div class="tstats reveal">
-      <div><b>44</b><span data-ca="unitats">unidades</span></div>
-      <div><b>287</b><span data-ca="pàgines de lliçó amb infografia i veu">páginas de lección con infografía y voz</span></div>
-      <div><b>1.080+</b><span data-ca="preguntes de comprensió, pràctica i repte">preguntas de comprensión, práctica y reto</span></div>
-      <div><b>44</b><span data-ca="minijocs, un per unitat">minijuegos, uno por unidad</span></div>
+      <div><b>53</b><span data-ca="unitats">unidades</span></div>
+      <div><b>360</b><span data-ca="pàgines de lliçó amb infografia i veu">páginas de lección con infografía y voz</span></div>
+      <div><b>1.300+</b><span data-ca="preguntes de comprensió, pràctica i repte">preguntas de comprensión, práctica y reto</span></div>
+      <div><b>53</b><span data-ca="minijocs, un per unitat">minijuegos, uno por unidad</span></div>
     </div>
     <div class="tcols">
-      <article class="tcol reveal "><header><img loading="lazy" decoding="async" src="img/app/arc_medi.webp" alt=""><div><h3 data-ca="Coneixement del Medi">Conocimiento del Medio</h3>
+      <article class="tcol reveal "><header><img src="img/app/arc_medi.webp" alt=""><div><h3 data-ca="Coneixement del Medi">Conocimiento del Medio</h3>
       <p class="tnum"><b>14</b> <span data-ca="unitats">unidades</span> · <b>101</b> <span data-ca="pàgines">páginas</span> · <b>367</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Cultura científica">Cultura científica</span><em>6</em></h4><ul><li><span data-ca="🔬 Com treballa la ciència">🔬 Cómo trabaja la ciencia</span></li><li><span data-ca="🌿 Els éssers vius i les plantes">🌿 Los seres vivos y las plantas</span></li><li><span data-ca="🦎 Els animals i les seves adaptacions">🦎 Los animales y sus adaptaciones</span></li><li><span data-ca="❤️ El cos humà i la salut">❤️ El cuerpo humano y la salud</span></li><li><span data-ca="🏞️ Ecosistemes i espais naturals">🏞️ Ecosistemas y espacios naturales</span></li><li><span data-ca="⚗️ La matèria, les forces i l&#x27;energia">⚗️ La materia, las fuerzas y la energía</span></li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Tecnologia i digitalització">Tecnología y digitalización</span><em>2</em></h4><ul><li><span data-ca="💻 Aparells digitals i seguretat">💻 Aparatos digitales y seguridad</span></li><li><span data-ca="⚙️ Projectes i programació">⚙️ Proyectos y programación</span></li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Societats i territoris">Sociedades y territorios</span><em>6</em></h4><ul><li><span data-ca="🌋 La Terra viva">🌋 La Tierra viva</span></li><li><span data-ca="🏝️ Les Illes Balears i les Pitiüses">🏝️ Las Illes Balears y las Pitiusas</span></li><li><span data-ca="⛰️ Relleu, clima i paisatge">⛰️ Relieve, clima y paisaje</span></li><li><span data-ca="⏳ Viatjar en el temps">⏳ Viajar en el tiempo</span></li><li><span data-ca="🏺 Dels talaiots als romans">🏺 De los talayots a los romanos</span></li><li><span data-ca="🏛️ Vivim en societat">🏛️ Vivimos en sociedad</span></li></ul></div></article>
-      <article class="tcol reveal d1"><header><img loading="lazy" decoding="async" src="img/app/arc_mates.webp" alt=""><div><h3 data-ca="Matemàtiques">Matemáticas</h3>
+      <article class="tcol reveal d1"><header><img src="img/app/arc_mates.webp" alt=""><div><h3 data-ca="Matemàtiques">Matemáticas</h3>
       <p class="tnum"><b>13</b> <span data-ca="unitats">unidades</span> · <b>84</b> <span data-ca="pàgines">páginas</span> · <b>306</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Nombres i operacions">Números y operaciones</span><em>6</em></h4><ul><li><span data-ca="🔢 Números fins al 99.999">🔢 Números hasta el 99.999</span></li><li><span data-ca="➕ Sumar i restar amb soltesa">➕ Sumar y restar con soltura</span></li><li><span data-ca="✖️ Multiplicar: taules i estratègies">✖️ Multiplicar: tablas y estrategias</span></li><li><span data-ca="➗ Dividir i repartir">➗ Dividir y repartir</span></li><li><span data-ca="🍕 Fraccions: parts d&#x27;un tot">🍕 Fracciones: partes de un todo</span></li><li><span data-ca="💶 Euros i cèntims">💶 Euros y céntimos</span></li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="La mesura">La medida</span><em>2</em></h4><ul><li><span data-ca="📏 Llargada, massa, capacitat i angles">📏 Longitud, masa, capacidad y ángulos</span></li><li><span data-ca="⏰ El temps: rellotge i durades">⏰ El tiempo: reloj y duraciones</span></li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Geometria i espai">Geometría y espacio</span><em>2</em></h4><ul><li><span data-ca="📐 Figures, cossos i perímetre">📐 Figuras, cuerpos y perímetro</span></li><li><span data-ca="🧭 Plànols, itineraris i simetries">🧭 Planos, itinerarios y simetrías</span></li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Patrons i relacions">Patrones y relaciones</span><em>1</em></h4><ul><li><span data-ca="🧩 Patrons, igualtat i algorismes">🧩 Patrones, igualdad y algoritmos</span></li></ul></div><div class="tblk"><h4><i>E</i><span data-ca="Estadística i probabilitat">Estadística y probabilidad</span><em>2</em></h4><ul><li><span data-ca="📊 Dades, gràfics i atzar">📊 Datos, gráficos y azar</span></li><li><span data-ca="🎲 Dades i atzar II">🎲 Datos y azar II</span></li></ul></div></article>
-      <article class="tcol reveal d2"><header><img loading="lazy" decoding="async" src="img/app/flag_es.webp" alt=""><div><h3 data-ca="Lengua Castellana">Lengua Castellana</h3>
+      <article class="tcol reveal d2"><header><img src="img/app/flag_es.webp" alt=""><div><h3 data-ca="Lengua Castellana">Lengua Castellana</h3>
       <p class="tnum"><b>9</b> <span data-ca="unitats">unidades</span> · <b>59</b> <span data-ca="pàgines">páginas</span> · <b>223</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Les llengües i els seus parlants">Las lenguas y sus hablantes</span><em>1</em></h4><ul><li>🗣️ Las lenguas a nuestro alrededor</li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Comunicació">Comunicación</span><em>3</em></h4><ul><li>📖 Leer y entender</li><li>✍️ Escribir bien</li><li>📖 Leer de verdad</li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Educació literària">Educación literaria</span><em>1</em></h4><ul><li>📜 Cuentos, poemas y leyendas</li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Reflexió sobre la llengua">Reflexión sobre la lengua</span><em>4</em></h4><ul><li>🔤 Las clases de palabras</li><li>📝 Acentos y significados</li><li>✏️ Ortografía I: letras que suenan igual</li><li>🔤 Ortografía II: un sonido, varias letras</li></ul></div><div class="tblk tnote"><p data-ca="El contingut va en castellà en els dos idiomes de l'app, perquè és la llengua d'estudi.">El contenido va en castellano en los dos idiomas de la app, porque es la lengua de estudio.</p></div></article>
-      <article class="tcol reveal d3"><header><img loading="lazy" decoding="async" src="img/app/flag_en.webp" alt=""><div><h3 data-ca="Anglès">Inglés</h3>
+      <article class="tcol reveal d3"><header><img src="img/app/flag_ca.webp" alt=""><div><h3 data-ca="Llengua Catalana">Lengua Catalana</h3>
+      <p class="tnum"><b>9</b> <span data-ca="unitats">unidades</span> · <b>73</b> <span data-ca="pàgines">páginas</span> · <b>235</b> <span data-ca="preguntes">preguntas</span></p></div></header>
+      <div class="tblk"><h4><i>A</i><span data-ca="Les llengües i els parlants">Las lenguas y sus hablantes</span><em>1</em></h4><ul><li>🗺️ Les llengües del nostre voltant</li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Comunicació">Comunicación</span><em>3</em></h4><ul><li>📖 Llegir i entendre</li><li>✍️ Escriure bé</li><li>🎤 Parlar i escoltar</li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Educació literària">Educación literaria</span><em>1</em></h4><ul><li>📜 Rondalles, poemes i llegendes</li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Reflexió sobre la llengua">Reflexión sobre la lengua</span><em>4</em></h4><ul><li>🔤 Les classes de paraules</li><li>📝 Accents i significats</li><li>✏️ Ortografia I: l'apòstrof i les lletres</li><li>🖋️ Ortografia II: dígrafs i signes</li></ul></div><div class="tblk tnote"><p data-ca="El contingut va en català en els dos idiomes de l'app, perquè és la llengua d'estudi: català central, amb una làmina pròpia a cada lliçó. La tutora és l'Eva, la mestra de català.">El contenido va en catalán en los dos idiomas de la app, porque es la lengua de estudio: catalán central, con una lámina propia en cada lección. La tutora es Eva, la maestra de catalán.</p></div></article>
+      <article class="tcol reveal d3"><header><img src="img/app/flag_en.webp" alt=""><div><h3 data-ca="Anglès">Inglés</h3>
       <p class="tnum"><b>8</b> <span data-ca="unitats">unidades</span> · <b>43</b> <span data-ca="pàgines">páginas</span> · <b>173</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>1</i><span data-ca="El meu món i jo">Mi mundo y yo</span><em>4</em></h4><ul><li>👋 Hello! Saludar y presentarse</li><li>👨‍👩‍👧 My family</li><li>🏠 My house</li><li>🏫 At school</li></ul></div><div class="tblk"><h4><i>2</i><span data-ca="El meu dia i la meva ciutat">Mi día y mi ciudad</span><em>4</em></h4><ul><li>⏰ My day</li><li>🍎 Food</li><li>🧥 Clothes and weather</li><li>🏘️ My town</li></ul></div>
       <div class="tblk tnote"><h4><i>✦</i><span data-ca="Com s'aprèn">Cómo se aprende</span></h4><p data-ca="L'explicació va en català o castellà; tot el que és anglès surt en un recuadre que es llegeix amb veu anglesa. Preguntes d'escoltar, d'escriure i d'ordenar frases.">La explicación va en castellano o catalán; todo lo que es inglés sale en un recuadro que se lee con voz inglesa. Preguntas de escuchar, de escribir y de ordenar frases.</p></div></article>
@@ -1073,11 +1082,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="lead reveal d2" data-ca="Les lliçons acabades es guarden al diari per tornar-les a llegir sense proves: la infografia, el text i la veu. Amb el cercador es troba qualsevol paraula clau en un moment. També hi ha les taules de multiplicar per repassar-les, les criatures que ha vençut i, en una altra pestanya, els resultats per al tutor.">Las lecciones terminadas se guardan en el diario para volver a leerlas sin pruebas: la infografía, el texto y la voz. Con el buscador se encuentra cualquier palabra clave en un momento. También están las tablas de multiplicar para repasarlas, las criaturas que ha vencido y, en otra pestaña, los resultados para el tutor.</p>
     </div>
     <div class="dtrio">
-      <figure class="reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="diary" alt="Diario real"></div></div>
+      <figure class="reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="diary" alt="Diario real"></div></div>
         <figcaption><b data-ca="L'avanç general">El avance general</b><span data-ca="Lliçons, làmines, reptes i paraules apreses.">Lecciones, láminas, retos y palabras aprendidas.</span></figcaption></figure>
-      <figure class="reveal d1"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="dsearch" alt="Buscador del diario"></div></div>
+      <figure class="reveal d1"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="dsearch" alt="Buscador del diario"></div></div>
         <figcaption><b data-ca="Cercador de paraules clau">Buscador de palabras clave</b><span data-ca="Troba-les dins les lliçons que ja ha fet.">Las encuentra dentro de las lecciones ya hechas.</span></figcaption></figure>
-      <figure class="reveal d2"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="gloss" alt="Explicación de una palabra clave"></div></div>
+      <figure class="reveal d2"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="gloss" alt="Explicación de una palabra clave"></div></div>
         <figcaption><b data-ca="Paraules que s'expliquen">Palabras que se explican</b><span data-ca="Significat, sinònims, antònims i si és aguda, plana o esdrúixola.">Significado, sinónimos, antónimos y si es aguda, llana o esdrújula.</span></figcaption></figure>
     </div>
     <div class="vocab reveal">
@@ -1105,25 +1114,25 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="lead reveal d2" data-ca="Els resultats són al Diari i mostren, amb dades clares, on va bé l'alumne i on necessita ajuda. Serveixen a la família i també al docent.">Los resultados están en el Diario y muestran, con datos claros, dónde va bien el alumno y dónde necesita ayuda. Sirven a la familia y también al docente.</p>
     </div>
     <div class="rphones">
-      <figure class="reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="res1" alt="Nota global y por asignatura"></div></div>
+      <figure class="reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="res1" alt="Nota global y por asignatura"></div></div>
         <figcaption><b data-ca="La nota, clara">La nota, clara</b><span data-ca="De l'1 al 10, global i per assignatura.">Del 1 al 10, global y por asignatura.</span></figcaption></figure>
-      <figure class="reveal d1"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="res2" alt="Evolución y actividad"></div></div>
+      <figure class="reveal d1"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="res2" alt="Evolución y actividad"></div></div>
         <figcaption><b data-ca="Evolució i constància">Evolución y constancia</b><span data-ca="Com canvia la nota i quins dies ha estudiat.">Cómo cambia la nota y qué días ha estudiado.</span></figcaption></figure>
-      <figure class="reveal d2"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="res3" alt="Dónde necesita ayuda"></div></div>
+      <figure class="reveal d2"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="res3" alt="Dónde necesita ayuda"></div></div>
         <figcaption><b data-ca="On necessita ajuda">Dónde necesita ayuda</b><span data-ca="Unitats i preguntes que més li costen.">Unidades y preguntas que más le cuestan.</span></figcaption></figure>
-      <figure class="reveal d3"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="res4" alt="Lecciones sin terminar"></div></div>
+      <figure class="reveal d3"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="res4" alt="Lecciones sin terminar"></div></div>
         <figcaption><b data-ca="Senyals de frustració">Señales de frustración</b><span data-ca="Lliçons deixades a mitges o l'app tancada.">Lecciones dejadas a medias o la app cerrada.</span></figcaption></figure>
     </div>
 
     <div class="rmeasure">
       <h3 class="reveal" data-ca="Què mesura">Qué mide</h3>
       <div class="rgrid">
-        <div class="reveal"><i><img loading="lazy" decoding="async" src="img/deco/med_nota.webp" alt=""></i><b data-ca="Nota de l'1 al 10">Nota del 1 al 10</b><span data-ca="Només compten els reptes i la primera resposta: la repesca serveix per aprendre.">Solo cuentan los retos y la primera respuesta: la repesca sirve para aprender.</span></div>
-        <div class="reveal d1"><i><img loading="lazy" decoding="async" src="img/deco/med_asignatura.webp" alt=""></i><b data-ca="Per assignatura i bloc">Por asignatura y bloque</b><span data-ca="Errors a la primera, corregits i deixats a mitges, bloc a bloc.">Errores a la primera, corregidos y dejados a medias, bloque a bloque.</span></div>
-        <div class="reveal d2"><i><img loading="lazy" decoding="async" src="img/deco/med_evolucion.webp" alt=""></i><b data-ca="Evolució">Evolución</b><span data-ca="La nota dels darrers reptes en una gràfica.">La nota de los últimos retos en una gráfica.</span></div>
-        <div class="reveal"><i><img loading="lazy" decoding="async" src="img/deco/med_actividad.webp" alt=""></i><b data-ca="Activitat diària">Actividad diaria</b><span data-ca="Els darrers 14 dies: què ha fet i què ha deixat a mitges.">Los últimos 14 días: qué ha hecho y qué ha dejado a medias.</span></div>
-        <div class="reveal d1"><i><img loading="lazy" decoding="async" src="img/deco/med_dificiles.webp" alt=""></i><b data-ca="Unitats i preguntes difícils">Unidades y preguntas difíciles</b><span data-ca="Amb el percentatge d'errors i les vegades que ha fallat cada pregunta.">Con el porcentaje de errores y las veces que ha fallado cada pregunta.</span></div>
-        <div class="reveal d2"><i><img loading="lazy" decoding="async" src="img/deco/med_palabras.webp" alt=""></i><b data-ca="Paraules consultades">Palabras consultadas</b><span data-ca="El vocabulari que ha hagut de consultar a les lliçons.">El vocabulario que ha necesitado consultar en las lecciones.</span></div>
+        <div class="reveal"><i><img src="img/deco/med_nota.webp" alt=""></i><b data-ca="Nota de l'1 al 10">Nota del 1 al 10</b><span data-ca="Només compten els reptes i la primera resposta: la repesca serveix per aprendre.">Solo cuentan los retos y la primera respuesta: la repesca sirve para aprender.</span></div>
+        <div class="reveal d1"><i><img src="img/deco/med_asignatura.webp" alt=""></i><b data-ca="Per assignatura i bloc">Por asignatura y bloque</b><span data-ca="Errors a la primera, corregits i deixats a mitges, bloc a bloc.">Errores a la primera, corregidos y dejados a medias, bloque a bloque.</span></div>
+        <div class="reveal d2"><i><img src="img/deco/med_evolucion.webp" alt=""></i><b data-ca="Evolució">Evolución</b><span data-ca="La nota dels darrers reptes en una gràfica.">La nota de los últimos retos en una gráfica.</span></div>
+        <div class="reveal"><i><img src="img/deco/med_actividad.webp" alt=""></i><b data-ca="Activitat diària">Actividad diaria</b><span data-ca="Els darrers 14 dies: què ha fet i què ha deixat a mitges.">Los últimos 14 días: qué ha hecho y qué ha dejado a medias.</span></div>
+        <div class="reveal d1"><i><img src="img/deco/med_dificiles.webp" alt=""></i><b data-ca="Unitats i preguntes difícils">Unidades y preguntas difíciles</b><span data-ca="Amb el percentatge d'errors i les vegades que ha fallat cada pregunta.">Con el porcentaje de errores y las veces que ha fallado cada pregunta.</span></div>
+        <div class="reveal d2"><i><img src="img/deco/med_palabras.webp" alt=""></i><b data-ca="Paraules consultades">Palabras consultadas</b><span data-ca="El vocabulari que ha hagut de consultar a les lliçons.">El vocabulario que ha necesitado consultar en las lecciones.</span></div>
       </div>
     </div>
 
@@ -1153,7 +1162,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         </article>
       </div>
       <aside class="galleta reveal" aria-labelledby="gal-t">
-      <img loading="lazy" decoding="async" class="gsello" src="img/deco/sello_privacidad.webp" alt="">
+      <img class="gsello" src="img/deco/sello_privacidad.webp" alt="">
       <div>
         <span class="gtag" data-ca="Garantia de privacitat">Garantía de privacidad</span>
         <h3 id="gal-t" data-ca="La privacitat, a casa">La privacidad, en casa</h3>
@@ -1187,7 +1196,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <span class="n">4.º</span><br>
         <span class="tag" data-ca="Disponible">Disponible</span>
         <h3 data-ca="4t de Primària">4.º de Primaria</h3>
-        <p data-ca="Coneixement del Medi, Matemàtiques, Llengua Castellana i Anglès, amb 44 unitats. L'app és gratuïta i es pot provar amb la demo.">Conocimiento del Medio, Matemáticas, Lengua Castellana e Inglés, con 44 unidades. La app es gratuita y se puede probar con la demo.</p>
+        <p data-ca="Coneixement del Medi, Matemàtiques, Llengua Castellana, Llengua Catalana i Anglès, amb 53 unitats. L'app és gratuïta i es pot provar amb la demo.">Conocimiento del Medio, Matemáticas, Lengua Castellana, Lengua Catalana e Inglés, con 53 unidades. La app es gratuita y se puede probar con la demo.</p>
       </article>
       <article class="reveal d1">
         <span class="n">+1</span><br>
@@ -1217,13 +1226,13 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="lead reveal d2" data-ca="El mateix temari, tres camins per recórrer-lo. Cada infant tria el que més el motiva, i el pot canviar quan vulgui sense perdre l'avanç fet.">El mismo temario, tres caminos para recorrerlo. Cada niño elige el que más le motiva, y puede cambiarlo cuando quiera sin perder el avance realizado.</p>
     </div>
     <div class="m3">
-      <a href="#m-clasico" class="reveal"><img loading="lazy" decoding="async" src="img/deco/mod_clasico.webp" alt=""><b data-ca="Clàssic">Clásico</b><span data-ca="Una assignatura i les seves unitats, en ordre.">Una asignatura y sus unidades, en orden.</span></a>
-      <a href="#m-exploracion" class="reveal d1"><img loading="lazy" decoding="async" src="img/deco/mod_exploracion.webp" alt=""><b data-ca="Exploració">Exploración</b><span data-ca="Un camí que alterna assignatures.">Un camino que alterna asignaturas.</span></a>
-      <a href="#aventura" class="reveal d2"><img loading="lazy" decoding="async" src="img/deco/mod_aventura.webp" alt=""><b data-ca="Aventura">Aventura</b><span data-ca="Un mapa amb camins, tresors, perills i caps.">Un mapa con caminos, tesoros, peligros y jefes.</span></a>
+      <a href="#m-clasico" class="reveal"><img src="img/deco/mod_clasico.webp" alt=""><b data-ca="Clàssic">Clásico</b><span data-ca="Una assignatura i les seves unitats, en ordre.">Una asignatura y sus unidades, en orden.</span></a>
+      <a href="#m-exploracion" class="reveal d1"><img src="img/deco/mod_exploracion.webp" alt=""><b data-ca="Exploració">Exploración</b><span data-ca="Un camí que alterna assignatures.">Un camino que alterna asignaturas.</span></a>
+      <a href="#aventura" class="reveal d2"><img src="img/deco/mod_aventura.webp" alt=""><b data-ca="Aventura">Aventura</b><span data-ca="Un mapa amb camins, tresors, perills i caps.">Un mapa con caminos, tesoros, peligros y jefes.</span></a>
     </div>
   </div>
   <div class="wrap split msub" id="m-clasico">
-    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="units" alt="Modo clásico real"></div></div></div>
+    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="units" alt="Modo clásico real"></div></div></div>
     <div>
       <span class="eyebrow reveal" data-ca="Mode clàssic">Modo clásico</span>
       <h2 class="reveal d1" data-ca="Pas a pas, <em>com a classe.</em>">Paso a paso, <em>como en clase.</em></h2>
@@ -1246,19 +1255,19 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <li data-ca="🚶 El personatge camina fins a la parada següent">🚶 El personaje camina hasta la siguiente parada</li>
       </ul>
     </div>
-    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="explore" alt="Camino de exploración real"></div></div></div>
+    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="explore" alt="Camino de exploración real"></div></div></div>
   </div>
   <div class="wrap split msub" id="aventura">
-    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="map" alt="Mapa real del modo aventura"></div></div></div>
+    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="map" alt="Mapa real del modo aventura"></div></div></div>
     <div>
       <span class="eyebrow reveal" data-ca="Mode aventura">Modo aventura</span>
       <h2 class="reveal d1" style="font-size:clamp(38px,4.8vw,64px);margin-top:14px" data-ca="Descobreix el <em>mode aventura.</em>">Descubre el <em>modo aventura.</em></h2>
       <p class="lead reveal d2" data-ca="Al mode Aventurer cada unitat és una casella del camí, amb rutes diferents, tresors i perills. En Branquianegra aguaita pels camins, disposat a quedar-se part del teu botí si no superes el seu repte. Però també hi trobaràs amics, com en Rufus el mag, que et donarà aixopluc, et regalarà un dia de ratxa i et desafiarà amb endevinalles: si l'encertes, et guanyes un val de ratxa. Al final del camí t'espera el cap final, que posarà a prova tot el que has après. Si el derrotes, guanyaràs un gran tresor: or, un val de ratxa i una mascota nova.">En el modo Aventurero cada unidad es una casilla del camino, con rutas distintas, tesoros y peligros. Branquianegra acecha en los caminos, dispuesto a quedarse con parte de tu botín si no superas su reto. Pero también encontrarás amigos, como Rufus el mago, que te dará cobijo, te regalará un día de racha y te desafiará con adivinanzas: si la aciertas, te llevas un vale de racha. Al final del camino te espera el jefe final, que pondrá a prueba todo lo aprendido. Si lo derrotas, ganarás un gran tesoro: oro, un vale de racha y una nueva mascota.</p>
       <div class="adv">
-        <article class="reveal"><img loading="lazy" decoding="async" src="img/app/tut_guia_celebra.webp" alt="Branquianegra"><b>Branquianegra</b><span data-ca="Et repta pel camí i, si falles, s'emporta part del teu or.">Te reta en el camino y, si fallas, se lleva parte de tu oro.</span></article>
-        <article class="reveal d1"><img loading="lazy" decoding="async" src="img/app/tut_rufus_idle.webp" alt="Rufus"><b data-ca="El refugi d'en Rufus">El refugio de Rufus</b><span data-ca="Aixopluc, un dia de ratxa i un val si encertes l'endevinalla.">Cobijo, un día de racha y un vale si aciertas la adivinanza.</span></article>
-        <article class="reveal d2 dragon"><img loading="lazy" decoding="async" src="img/app/boss_dragon.webp" alt="El drac vermell, cap final"><b data-ca="El drac vermell">El dragón rojo</b><span data-ca="El cap final i el repte més difícil: preguntes de tot el trimestre i sense mascotes.">El jefe final y el reto más difícil: preguntas de todo el trimestre y sin mascotas.</span></article>
-        <article class="reveal d3 treasure"><div class="tico"><svg viewBox="0 0 100 100"><use href="#coin"/></svg><i>🎟️</i><img loading="lazy" decoding="async" src="img/pets/pet_20.webp" alt=""></div><b data-ca="El gran tresor">El gran tesoro</b><span data-ca="Or, un val de ratxa i una mascota nova.">Oro, un vale de racha y una mascota nueva.</span></article>
+        <article class="reveal"><img src="img/app/tut_guia_celebra.webp" alt="Branquianegra"><b>Branquianegra</b><span data-ca="Et repta pel camí i, si falles, s'emporta part del teu or.">Te reta en el camino y, si fallas, se lleva parte de tu oro.</span></article>
+        <article class="reveal d1"><img src="img/app/tut_rufus_idle.webp" alt="Rufus"><b data-ca="El refugi d'en Rufus">El refugio de Rufus</b><span data-ca="Aixopluc, un dia de ratxa i un val si encertes l'endevinalla.">Cobijo, un día de racha y un vale si aciertas la adivinanza.</span></article>
+        <article class="reveal d2 dragon"><img src="img/app/boss_dragon.webp" alt="El drac vermell, cap final"><b data-ca="El drac vermell">El dragón rojo</b><span data-ca="El cap final i el repte més difícil: preguntes de tot el trimestre i sense mascotes.">El jefe final y el reto más difícil: preguntas de todo el trimestre y sin mascotas.</span></article>
+        <article class="reveal d3 treasure"><div class="tico"><svg viewBox="0 0 100 100"><use href="#coin"/></svg><i>🎟️</i><img src="img/pets/pet_20.webp" alt=""></div><b data-ca="El gran tresor">El gran tesoro</b><span data-ca="Or, un val de ratxa i una mascota nova.">Oro, un vale de racha y una mascota nueva.</span></article>
       </div>
     </div>
   </div>
@@ -1269,21 +1278,21 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 <!-- ============ INFOGRAFÍAS ============ -->
 <section class="sec info" id="infografias">
   <div class="wrap split">
-    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="lesson3" alt="Lección real con infografía"></div></div></div>
+    <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="lesson3" alt="Lección real con infografía"></div></div></div>
     <div>
       <span class="eyebrow reveal" data-ca="Infografies">Infografías</span>
       <h2 class="reveal d1" style="font-size:clamp(38px,4.8vw,64px);margin-top:14px" data-ca="Cada lliçó, <em>una làmina</em> il·lustrada.">Cada lección, <em>una lámina</em> ilustrada.</h2>
       <p class="lead reveal d2" data-ca="Cada lliçó s'obre amb una infografia que resumeix la idea clau en una imatge. Totes segueixen el mateix estil, que dona al projecte un aspecte propi i ajuda a entendre la lliçó. Estan en català i en castellà (les d'anglès, amb els rètols en anglès), i fan servir exemples propers i llocs reals.">Cada lección se abre con una infografía que resume la idea clave en una imagen. Todas siguen el mismo estilo, que da al proyecto un aspecto propio y ayuda a entender la lección. Están en catalán y en castellano (las de inglés, con los rótulos en inglés), y usan ejemplos cercanos y lugares reales.</p>
       <div class="count reveal d3">
-        <div><b>170+</b><span data-ca="infografies">infografías</span></div>
-        <div><b>4+1</b><span data-ca="assignatures">asignaturas</span></div>
+        <div><b>240+</b><span data-ca="infografies">infografías</span></div>
+        <div><b>5</b><span data-ca="assignatures">asignaturas</span></div>
         <div><b>ca·es</b><span data-ca="dues llengües">dos idiomas</span></div>
       </div>
     </div>
   </div>
   <div class="gal" id="gal" aria-label="Galería de infografías"></div>
 </section>
-<div class="lb" id="lb" role="dialog" aria-modal="true"><img loading="lazy" decoding="async" alt=""></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><img alt=""></div>
 
 <div class="handline reveal" data-v="3" aria-hidden="true"></div>
 <!-- ============ PERSONAJES ============ -->
@@ -1298,7 +1307,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     </div>
     <div class="worlds" id="worlds" hidden></div>
     <div class="split" style="align-items:stretch">
-      <div class="phwrap reveal" style="align-self:center"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="avatars" alt="Pantalla real de personajes"></div></div></div>
+      <div class="phwrap reveal" style="align-self:center"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="avatars" alt="Pantalla real de personajes"></div></div></div>
       <div class="pick reveal d1" id="pick"></div>
     </div>
 
@@ -1307,11 +1316,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <div class="who"><div><span class="role" data-ca="El cartògraf">El cartógrafo</span><h3>Bram</h3></div></div>
         <div class="bubble-row"><div class="bubble"></div></div>
         <div class="fig">
-          <img loading="lazy" decoding="async" src="img/app/tut_social_b0.webp" alt="Bram con su mapa, la brújula y la mochila" class="on">
-          <img loading="lazy" decoding="async" src="img/app/tut_social_b2.webp" alt="Bram mirando a lo lejos desde una roca">
-          <img loading="lazy" decoding="async" src="img/app/tut_social_b8.webp" alt="Bram investigando una hoja con la lupa">
-          <img loading="lazy" decoding="async" src="img/app/tut_social_b4.webp" alt="Bram cargado de libros">
-          <img loading="lazy" decoding="async" src="img/app/tut_social_b5.webp" alt="Bram observando con prismáticos">
+          <img src="img/app/tut_social_b0.webp" alt="Bram con su mapa, la brújula y la mochila" class="on">
+          <img src="img/app/tut_social_b2.webp" alt="Bram mirando a lo lejos desde una roca">
+          <img src="img/app/tut_social_b8.webp" alt="Bram investigando una hoja con la lupa">
+          <img src="img/app/tut_social_b4.webp" alt="Bram cargado de libros">
+          <img src="img/app/tut_social_b5.webp" alt="Bram observando con prismáticos">
         </div>
         <div class="poses"></div>
       </article>
@@ -1319,12 +1328,12 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <div class="who"><div></div><div style="text-align:right"><span class="role" data-ca="La naturalista">La naturalista</span><h3>Serena</h3></div></div>
         <div class="bubble-row"><div class="bubble"></div></div>
         <div class="fig">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_piensa.webp" alt="Serena pensando, con la mano en la barbilla" class="on">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_senala.webp" alt="Serena agachada señalando una pista">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_rie.webp" alt="Serena riendo, abrazada a su bastón">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_salta.webp" alt="Serena saltando de alegría con su gato">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_calma.webp" alt="Serena sentada, respirando con calma, con su gato">
-          <img loading="lazy" decoding="async" src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
+          <img src="img/app/tut_natural_piensa.webp" alt="Serena pensando, con la mano en la barbilla" class="on">
+          <img src="img/app/tut_natural_senala.webp" alt="Serena agachada señalando una pista">
+          <img src="img/app/tut_natural_rie.webp" alt="Serena riendo, abrazada a su bastón">
+          <img src="img/app/tut_natural_salta.webp" alt="Serena saltando de alegría con su gato">
+          <img src="img/app/tut_natural_calma.webp" alt="Serena sentada, respirando con calma, con su gato">
+          <img src="img/app/tut_natural_sorpresa.webp" alt="Serena sorprendida, con las manos en la cara">
         </div>
         <div class="poses"></div>
       </article>
@@ -1333,10 +1342,10 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="friends">
       <h3 class="reveal" data-ca="I més tutors dins l'app">Y más tutores dentro de la app</h3>
       <div class="row">
-        <div class="friend reveal big1"><img loading="lazy" decoding="async" src="img/app/tut_marta_8.webp" alt="Marta saludando con un cartel que dice Hello"><b>Marta</b><span data-ca="la mestra d'anglès">la maestra de inglés</span></div>
-        <div class="friend reveal d1"><img loading="lazy" decoding="async" src="img/app/tut_lengua_p06.webp" alt="Loki tocando la mandolina"><b>Loki</b><span data-ca="el bard">el bardo</span></div>
-        <div class="friend cloud reveal d2"><img loading="lazy" decoding="async" src="img/app/tut_rufus_idle.webp" alt="Rufus sentado en su nube"><b>Rufus</b><span data-ca="el mag del refugi">el mago del refugio</span></div>
-        <div class="friend reveal d3 big2"><img loading="lazy" decoding="async" src="img/app/tut_guia_celebra.webp" alt=""><b>Branquianegra</b><span data-ca="el pirata del camí">el pirata del camino</span></div>
+        <div class="friend reveal big1"><img src="img/app/tut_marta_8.webp" alt="Marta saludando con un cartel que dice Hello"><b>Marta</b><span data-ca="la mestra d'anglès">la maestra de inglés</span></div>
+        <div class="friend reveal d1"><img src="img/app/tut_lengua_p06.webp" alt="Loki tocando la mandolina"><b>Loki</b><span data-ca="el bard">el bardo</span></div>
+        <div class="friend cloud reveal d2"><img src="img/app/tut_rufus_idle.webp" alt="Rufus sentado en su nube"><b>Rufus</b><span data-ca="el mag del refugi">el mago del refugio</span></div>
+        <div class="friend reveal d3 eva"><img src="img/app/tut_eva_web.webp" alt="Eva, la maestra de catalán, saludando"><b>Eva</b><span data-ca="la mestra de català">la maestra de catalán</span></div>
       </div>
     </div>
   </div>
@@ -1354,7 +1363,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="lead reveal d2" data-ca="Cada mascota en sap d'una, dues o tres assignatures segons com sigui de rara: comuna (una), rara (dues) o èpica (tres). Quan una pregunta s'encalla, toques la mascota que en sap i et dona una pista. Prova-ho: només t'ajudarà la que en sap.">Cada mascota sabe de una, dos o tres asignaturas según lo rara que sea: común (una), rara (dos) o épica (tres). Cuando una pregunta se atasca, tocas a la mascota que sabe del tema y te da una pista. Pruébalo: solo te ayudará la que sabe.</p>
     </div>
     <div class="split">
-      <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="prhint" alt="Pregunta real con la pista de una mascota"></div></div></div>
+      <div class="phwrap reveal"><div class="phone sm"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="prhint" alt="Pregunta real con la pista de una mascota"></div></div></div>
       <div class="demo reveal d1" id="demo"></div>
     </div>
     <div class="pet-rules">
@@ -1365,7 +1374,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="petgrid reveal">
       <div class="pfilter" id="pfilter"></div>
       <div class="pets" id="pets"></div>
-      <img loading="lazy" decoding="async" id="flagEN" src="img/app/flag_en.webp" alt="" hidden>
+      <img id="flagEN" src="img/app/flag_en.webp" alt="" hidden>
     </div>
   </div>
 </section>
@@ -1408,7 +1417,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <div class="wbtns" id="bStreak"></div>
         <div class="wlabel" data-ca="Premis de casa">Premios de casa</div>
         <div class="chestbox" id="chestbox" role="button" tabindex="0" aria-label="Abrir el cofre">
-          <div class="chest" id="chest"><img loading="lazy" decoding="async" src="img/deco/cofre_tira.webp" alt=""></div>
+          <div class="chest" id="chest"><img src="img/deco/cofre_tira.webp" alt=""></div>
           <div><b data-ca="Cada premi, un cofre">Cada premio, un cofre</b><span data-ca="En bescanviar un premi s'obre el cofre. Toca'l per tornar-ho a veure.">Al canjear un premio se abre el cofre. Tócalo para verlo otra vez.</span></div>
         </div>
         <div id="prizes"></div>
@@ -1423,7 +1432,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 <!-- ============ LA APP POR DENTRO ============ -->
 <section class="sec" id="app" style="padding-top:40px;overflow:hidden">
   <div class="fantasy reveal">
-    <img loading="lazy" decoding="async" class="fh" src="img/deco/fantasia_h.webp" alt="">
+    <img class="fh" src="img/deco/fantasia_h.webp" alt="">
     <div class="wrap ftxt"><div class="tear"><div class="tear-in">
       <span class="eyebrow reveal" data-ca="Dins l'app">Dentro de la app</span>
       <h2 class="reveal d1" data-ca="Un món de fantasia <em>per explorar.</em>">Un mundo de fantasía <em>por explorar.</em></h2>
@@ -1455,9 +1464,9 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <button data-d="m"><svg viewBox="0 0 48 48"><rect x="15" y="5" width="18" height="38" rx="4"/><path d="M21 9h6"/></svg><b data-ca="Mòbil">Móvil</b><span data-ca="Sempre a mà">Siempre a mano</span></button>
     </div>
     <div class="showcase reveal" id="showcase">
-      <div class="laptop"><div class="lscr"><img loading="lazy" decoding="async" class="shot" data-shot="pc_home" alt="La app en el ordenador"></div><div class="lbase"></div></div>
-      <div class="tablet"><div class="tscr"><img loading="lazy" decoding="async" class="shot" data-shot="tab_avatars" alt="La app en la tableta"></div></div>
-      <div class="phone sm mini"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="lesson3" alt="La app en el móvil"></div></div>
+      <div class="laptop"><div class="lscr"><img class="shot" data-shot="pc_home" alt="La app en el ordenador"></div><div class="lbase"></div></div>
+      <div class="tablet"><div class="tscr"><img class="shot" data-shot="tab_avatars" alt="La app en la tableta"></div></div>
+      <div class="phone sm mini"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="lesson3" alt="La app en el móvil"></div></div>
     </div>
     <div class="scrtabs reveal" id="scrtabs"></div>
   </div>
@@ -1473,20 +1482,20 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <h2 class="reveal d1" data-ca="Pensada per a casa, <em>útil a l'aula.</em>">Pensada para casa, <em>útil en el aula.</em></h2>
       </div>
     </div>
-    <figure class="scene wide clase reveal"><img loading="lazy" decoding="async" src="img/deco/casa_clase.webp" alt="A la izquierda, un niño repasa en casa con la app, Bram y Serena; a la derecha, al día siguiente, levanta la mano en clase para responder una división en la pizarra"></figure>
+    <figure class="scene wide clase reveal"><img src="img/deco/casa_clase.webp" alt="A la izquierda, un niño repasa en casa con la app, Bram y Serena; a la derecha, al día siguiente, levanta la mano en clase para responder una división en la pizarra"></figure>
     <div class="fam">
-      <div class="feat reveal"><div class="ic"><img loading="lazy" decoding="async" src="img/libro.webp" alt=""></div><h3 data-ca="Sense internet">Sin internet</h3><p data-ca="Un cop instal·lada, funciona sense connexió i sense comptes. Les dades es queden al dispositiu.">Una vez instalada, funciona sin conexión y sin cuentas. Los datos se quedan en el dispositivo.</p></div>
-      <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/pets/pet_43.webp" alt="El mini robot"></div><h3 data-ca="Un perfil per infant">Un perfil por niño</h3><p data-ca="Cada un amb el seu progrés, el seu personatge, les seves mascotes i el seu moneder.">Cada uno con su progreso, su personaje, sus mascotas y su monedero.</p></div>
-      <div class="feat reveal d2"><div class="ic"><img loading="lazy" decoding="async" src="img/app/arc_llengua.webp" alt=""></div><h3 data-ca="Versió bilingüe">Versión bilingüe</h3><p data-ca="És bilingüe, en castellà i català, amb veus que llegeixen les lliçons mentre les paraules s'il·luminen. L'anglès es llegeix amb veu anglesa.">Es bilingüe, en castellano y catalán, con voces que leen las lecciones mientras las palabras se iluminan. El inglés se lee con voz inglesa.</p></div>
+      <div class="feat reveal"><div class="ic"><img src="img/libro.webp" alt=""></div><h3 data-ca="Sense internet">Sin internet</h3><p data-ca="Un cop instal·lada, funciona sense connexió i sense comptes. Les dades es queden al dispositiu.">Una vez instalada, funciona sin conexión y sin cuentas. Los datos se quedan en el dispositivo.</p></div>
+      <div class="feat reveal d1"><div class="ic"><img src="img/pets/pet_43.webp" alt="El mini robot"></div><h3 data-ca="Un perfil per infant">Un perfil por niño</h3><p data-ca="Cada un amb el seu progrés, el seu personatge, les seves mascotes i el seu moneder.">Cada uno con su progreso, su personaje, sus mascotas y su monedero.</p></div>
+      <div class="feat reveal d2"><div class="ic"><img src="img/app/arc_llengua.webp" alt=""></div><h3 data-ca="Versió bilingüe">Versión bilingüe</h3><p data-ca="És bilingüe, en castellà i català, amb veus que llegeixen les lliçons mentre les paraules s'il·luminen. L'anglès es llegeix amb veu anglesa.">Es bilingüe, en castellano y catalán, con voces que leen las lecciones mientras las palabras se iluminan. El inglés se lee con voz inglesa.</p></div>
       <div class="feat wide reveal">
         <div>
           <h3 data-ca="Fes un seguiment del seu progrés">Haz un seguimiento de su progreso</h3>
           <a href="#resultados" class="flink" data-ca="Mira com funcionen els resultats ↑">Mira cómo funcionan los resultados ↑</a>
           <p data-ca="A més de la nota numèrica, les Notes mostren les unitats amb més errors, les preguntes que més li costen i cada lliçó que ha deixat a mitges o ha tancat sense acabar. Si ho repeteix a la mateixa unitat, l'app ho avisa: pot ser un senyal de frustració.">Además de la nota numérica, las Notas muestran las unidades con más errores, las preguntas que más le cuestan y cada lección que ha dejado a medias o ha cerrado sin terminar. Si se repite en la misma unidad, la app avisa: puede ser una señal de frustración.</p>
         </div>
-        <img loading="lazy" decoding="async" src="img/app/tut_social_b7.webp" alt="Bram regando una planta">
+        <img src="img/app/tut_social_b7.webp" alt="Bram regando una planta">
       </div>
-      <div class="feat reveal d1"><div class="ic"><img loading="lazy" decoding="async" src="img/app/castle.webp" alt=""></div><h3 data-ca="Mode tutor amb PIN">Modo tutor con PIN</h3><p data-ca="La família posa els premis de casa, dona monedes per les tasques i pot canviar il·lustracions i àudios.">La familia pone los premios de casa, da monedas por las tareas y puede cambiar ilustraciones y audios.</p></div>
+      <div class="feat reveal d1"><div class="ic"><img src="img/app/castle.webp" alt=""></div><h3 data-ca="Mode tutor amb PIN">Modo tutor con PIN</h3><p data-ca="La família posa els premis de casa, dona monedes per les tasques i pot canviar il·lustracions i àudios.">La familia pone los premios de casa, da monedas por las tareas y puede cambiar ilustraciones y audios.</p></div>
     </div>
   </div>
 </section>
@@ -1495,7 +1504,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 <!-- ============ QUIÉNES SOMOS ============ -->
 <section class="sec about" id="nosotros" style="padding-top:60px">
   <div class="wrap">
-    <div class="fig reveal"><img loading="lazy" decoding="async" src="img/app/tut_social_p06.webp" alt="Personaje dibujando un mapa en su mesa"></div>
+    <div class="fig reveal"><img src="img/app/tut_social_p06.webp" alt="Personaje dibujando un mapa en su mesa"></div>
     <div>
       <span class="eyebrow reveal" data-ca="Qui som">Quiénes somos</span>
       <h2 class="reveal d1" style="font-size:clamp(38px,4.8vw,64px);margin-top:14px" data-ca="Tot va començar <em>a casa.</em>">Todo empezó <em>en casa.</em></h2>
@@ -1505,7 +1514,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <div class="sign reveal d3">
         <p class="contact-t" data-ca="Contacte">Contacto</p>
         <div class="contact">
-          <a class="mailbtn" href="mailto:hola@rumboalsaber.app"><img loading="lazy" decoding="async" src="img/deco/sobre.webp" alt=""><span>hola@rumboalsaber.app</span></a>
+          <a class="mailbtn" href="mailto:hola@rumboalsaber.app"><img src="img/deco/sobre.webp" alt=""><span>hola@rumboalsaber.app</span></a>
           <a class="mailbtn igbtn" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber" data-ca-aria="Instagram de Rumbo al Saber: @cole.rumboalsaber"><i class="igic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="#fff" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="#fff"/></svg></i><span>@cole.rumboalsaber</span></a>
         </div>
       </div>
@@ -1535,8 +1544,8 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <span class="n">02</span><br>
         <span class="tag" data-ca="Assignatures">Asignaturas</span>
         <h3 data-ca="Més assignatures">Más asignaturas</h3>
-        <p data-ca="El tercer trimestre d'anglès amb la Marta i les llengües cooficials per a les comunitats que les estudien, començant pel català.">El tercer trimestre de inglés con Marta y las lenguas cooficiales para las comunidades que las estudian, empezando por el catalán.</p>
-        <div class="pics"><span class="lt" style="background:linear-gradient(180deg,#f2c14e,#d9a126)">Ca</span><span class="lt" style="background:linear-gradient(180deg,#5b8fd6,#2f64ad)">En</span></div>
+        <p data-ca="El tercer trimestre d'anglès, amb la Marta.">El tercer trimestre de inglés, con Marta.</p>
+        <div class="pics"><span class="lt" style="background:linear-gradient(180deg,#5b8fd6,#2f64ad)">En</span></div>
       </article>
       <article class="reveal d2">
         <span class="n">03</span><br>
@@ -1553,9 +1562,9 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
 
 <footer>
   <div class="logos">
-    <img loading="lazy" decoding="async" class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
+    <img class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
   </div>
-  <small>© 2026 Rumbo al Saber · <span data-ca="Web R14">Web R14</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a></small>
+  <small>© 2026 Rumbo al Saber · <span data-ca="Web R17">Web R17</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a><a class="ftig" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg><span>@cole.rumboalsaber</span></a></small>
 </footer>
 
 <script>
@@ -1730,12 +1739,12 @@ const WORLDS=[{id:'fan',img:'fantasia',es:'Fantasía',ca:'Fantasia'}];
 let world='fan',chosen=0;
 function renderWorlds(){
   $('#worlds').innerHTML=WORLDS.map(w=>`<button data-w="${w.id}" class="wban w-${w.id} ${w.id===world?'on':''} ${w.soon?'wsoon':''}">
-    <span class="wic"><img loading="lazy" decoding="async" src="${I(`img/worlds/${w.img}.webp`)}" alt=""></span><span class="wname">${w[lang]}</span>
+    <span class="wic"><img src="${I(`img/worlds/${w.img}.webp`)}" alt=""></span><span class="wname">${w[lang]}</span>
     <span class="wsub">${w.soon?T('Próximamente','Aviat'):T('30 héroes para elegir. Disponible.','30 herois per triar. Disponible.')}</span></button>`).join('');
   const w=WORLDS.find(x=>x.id===world);
   $('#pick').innerHTML=w.soon
-    ?`<div class="soon" style="grid-column:1/-1"><img loading="lazy" decoding="async" class="soonimg" src="${I(`img/worlds/${w.img}.webp`)}" alt=""><h3>${w[lang]}</h3><p>${T('Este mundo está en preparación. Cuando llegue, tendrá sus propios héroes, igual que Fantasía.','Aquest món està en preparació. Quan arribi, tindrà els seus propis herois, igual que Fantasia.')}</p></div>`
-    :`<div class="big"><img loading="lazy" decoding="async" src="${I(`img/chars/${CHARS[chosen]}.webp`)}" alt="${T('El héroe elegido','L\'heroi triat')}"></div><div><p style="margin:0 0 14px;color:var(--ink2);font-weight:700">${T('Toca un personaje para elegirlo:','Toca un personatge per triar-lo:')}</p><div class="grid-ch">${CHARS.slice(0,CH_SHOWN).map((c,i)=>`<button data-c="${i}" class="${i===chosen?'on':''}" aria-pressed="${i===chosen}" aria-label="${T('Elegir el héroe','Triar l\'heroi')} ${i+1}"><img src="${I(`img/chars/${c}.webp`)}" alt="" loading="lazy"></button>`).join('')}<div class="chmore"><b>+${CHARS.length-CH_SHOWN}</b><span>${T('más en la app','més a l\'app')}</span></div></div></div>`;
+    ?`<div class="soon" style="grid-column:1/-1"><img class="soonimg" src="${I(`img/worlds/${w.img}.webp`)}" alt=""><h3>${w[lang]}</h3><p>${T('Este mundo está en preparación. Cuando llegue, tendrá sus propios héroes, igual que Fantasía.','Aquest món està en preparació. Quan arribi, tindrà els seus propis herois, igual que Fantasia.')}</p></div>`
+    :`<div class="big"><img src="${I(`img/chars/${CHARS[chosen]}.webp`)}" alt="${T('El héroe elegido','L\'heroi triat')}"></div><div><p style="margin:0 0 14px;color:var(--ink2);font-weight:700">${T('Toca un personaje para elegirlo:','Toca un personatge per triar-lo:')}</p><div class="grid-ch">${CHARS.slice(0,CH_SHOWN).map((c,i)=>`<button data-c="${i}" class="${i===chosen?'on':''}" aria-pressed="${i===chosen}" aria-label="${T('Elegir el héroe','Triar l\'heroi')} ${i+1}"><img src="${I(`img/chars/${c}.webp`)}" alt="" loading="lazy"></button>`).join('')}<div class="chmore"><b>+${CHARS.length-CH_SHOWN}</b><span>${T('más en la app','més a l\'app')}</span></div></div></div>`;
 }
 $('#worlds').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;world=b.dataset.w;renderWorlds()});
 $('#pick').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;chosen=+b.dataset.c;
@@ -1794,10 +1803,10 @@ const PET_TOTAL=67;
 const PETS=[["pet_00", "n", ["medi"]], ["pet_06", "r", ["mates", "angles"]], ["pet_13", "e", ["llengua", "mates", "angles"]], ["pet_01", "n", ["llengua"]], ["pet_07", "r", ["angles", "medi"]], ["pet_21", "e", ["llengua", "mates", "angles"]], ["pet_02", "n", ["mates"]], ["pet_08", "r", ["medi", "llengua"]], ["pet_22", "e", ["mates", "angles", "medi"]], ["pet_03", "n", ["angles"]], ["pet_09", "r", ["llengua", "mates"]], ["pet_27", "e", ["angles", "medi", "llengua"]], ["pet_04", "n", ["medi"]], ["pet_15", "r", ["angles", "medi"]], ["pet_43", "e", ["angles", "medi", "llengua"]], ["pet_05", "n", ["llengua"]], ["pet_16", "r", ["medi", "llengua"]], ["pet_44", "e", ["medi", "llengua", "mates"]], ["pet_10", "n", ["mates"]], ["pet_18", "r", ["mates", "angles"]]].map(([id,r,as])=>({id,r,as}));
 let pf='all';
 function renderPets(){
-  const em=a=>a==='angles'?`<img loading="lazy" decoding="async" class="fl" src="${$('#flagEN').src}" alt="">`:AREA[a].e;
+  const em=a=>a==='angles'?`<img class="fl" src="${$('#flagEN').src}" alt="">`:AREA[a].e;
   $('#pfilter').innerHTML=[['all',T('Todas','Totes'),'🐾']].concat(Object.entries(AREA).map(([k,v])=>[k,v[lang],em(k)]))
     .map(([k,n,e])=>`<button data-f="${k}" class="${pf===k?'on':''}">${e} ${n}</button>`).join('');
-  $('#pets').innerHTML=PETS.map(p=>`<div class="p r-${p.r}${pf!=='all'&&!p.as.includes(pf)?' off':''}" style="--rc:${RARS[p.r].c}"><span class="icos">${p.as.map(a=>`<span class="ico${a==='angles'?' en':''}" style="background:${AREA[a].c}" title="${AREA[a][lang]}">${em(a)}</span>`).join('')}</span><img loading="lazy" decoding="async" src="${I(`img/pets/${p.id}.webp`)}" alt="${T('Mascota','Mascota')} ${RARS[p.r][lang].toLowerCase()} · ${p.as.map(a=>AREA[a][lang]).join(', ')}" loading="lazy"><em class="rar">${RARS[p.r][lang]}</em></div>`).join('')
+  $('#pets').innerHTML=PETS.map(p=>`<div class="p r-${p.r}${pf!=='all'&&!p.as.includes(pf)?' off':''}" style="--rc:${RARS[p.r].c}"><span class="icos">${p.as.map(a=>`<span class="ico${a==='angles'?' en':''}" style="background:${AREA[a].c}" title="${AREA[a][lang]}">${em(a)}</span>`).join('')}</span><img src="${I(`img/pets/${p.id}.webp`)}" alt="${T('Mascota','Mascota')} ${RARS[p.r][lang].toLowerCase()} · ${p.as.map(a=>AREA[a][lang]).join(', ')}" loading="lazy"><em class="rar">${RARS[p.r][lang]}</em></div>`).join('')
     +`<div class="p more"><b>+${PET_TOTAL-PETS.length}</b><span>${T('más en la app','més a l\'app')}</span></div>`;
 }
 $('#pfilter').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pf=b.dataset.f;renderPets()});
@@ -1813,7 +1822,7 @@ function renderDemo(){
   const d=$('#demo');
   d.innerHTML=`<span class="area" style="background:${AREA[DEMO.area].c}">${AREA[DEMO.area].e} ${AREA[DEMO.area][lang]}</span><div class="q">${DEMO.q[lang]}</div>
    <div class="opts">${DEMO.o.map((o,i)=>`<button data-o="${i}" class="${answered===i?(o.ok?'ok':'no'):''}">${o[lang]}</button>`).join('')}</div>
-   <div class="helpers">${DEMO.helpers.map(h=>`<button class="helper${tired[h.id]?' tired':''}" data-p="${h.id}" data-a="${h.a}" title="${AREA[h.a][lang]}"><span class="ico" style="background:${AREA[h.a].c}">${AREA[h.a].e}</span><img loading="lazy" decoding="async" src="${I(`img/pets/${h.id}.webp`)}" alt=""></button>`).join('')}</div>
+   <div class="helpers">${DEMO.helpers.map(h=>`<button class="helper${tired[h.id]?' tired':''}" data-p="${h.id}" data-a="${h.a}" title="${AREA[h.a][lang]}"><span class="ico" style="background:${AREA[h.a].c}">${AREA[h.a].e}</span><img src="${I(`img/pets/${h.id}.webp`)}" alt=""></button>`).join('')}</div>
    <div class="hint" id="hint">${hintTxt?hintTxt[lang]:'💡 '+T('Toca la mascota de la materia para pedirle una pista.','Toca la mascota de la matèria per demanar-li una pista.')}</div>
    <div style="text-align:right;margin-top:10px"><button class="btn ghost" id="demoReset" style="padding:9px 16px;font-size:14px">↺ ${T('Volver a probar','Tornar-ho a provar')}</button></div>`;
 }
@@ -1854,7 +1863,7 @@ const CF=[
 let cfi=0,cfTimer;
 function renderCF(){
   const box=$('#cf');
-  if(!box.children.length) box.innerHTML=CF.map((c,i)=>`<div class="phone sm" data-i="${i}"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img loading="lazy" decoding="async" class="shot" data-shot="${c.s}" alt=""></div></div>`).join('');
+  if(!box.children.length) box.innerHTML=CF.map((c,i)=>`<div class="phone sm" data-i="${i}"><div class="scr"><div class="sb"><span>9:41</span><i>●●● ▮</i></div><img class="shot" data-shot="${c.s}" alt=""></div></div>`).join('');
   shots();
   $$('.phone img.shot',box).forEach((im,i)=>im.alt=T('Pantalla de la app: ','Pantalla de l\'app: ')+CF[i][lang][0]);
   const wide=innerWidth>700?300:150;
