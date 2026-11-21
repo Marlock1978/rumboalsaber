@@ -24,11 +24,11 @@ body{
 }
 #app{max-width:860px;margin:0 auto;padding:12px 14px 40px}
 /* Pasar página: una copia de la página vieja gira sobre su borde izquierdo y deja ver la nueva */
-.hoja-vuelta{position:fixed;inset:0;z-index:60;pointer-events:none;perspective:1800px;overflow:hidden}
+.hoja-vuelta{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;pointer-events:none;perspective:1800px;overflow:hidden}
 .hoja-vuelta .pag{position:absolute;top:0;bottom:0;overflow:hidden;transform-origin:left center;transform-style:preserve-3d;
   background:var(--morado);background-image:radial-gradient(rgba(255,255,255,.13) 2px,transparent 2.5px);background-size:18px 18px;
   border-right:4px solid #000;box-shadow:8px 0 18px rgba(0,0,0,.45);animation:pasaHoja .62s cubic-bezier(.45,.05,.55,.95) forwards}
-.hoja-vuelta .pag::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35));opacity:0;animation:sombraHoja .62s forwards}
+.hoja-vuelta .pag::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(90deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.35));opacity:0;animation:sombraHoja .62s forwards}
 .hoja-vuelta .pag > div{position:absolute;left:0;right:0}
 #app.entra{animation:entraHoja .62s ease-out}
 @keyframes pasaHoja{0%{transform:rotateY(0)}100%{transform:rotateY(-100deg);opacity:.2}}
@@ -54,22 +54,23 @@ body{
 .escena.naranja{background:linear-gradient(#ffe08a,#ff8a2a)}
 .escena.madera{background:linear-gradient(#e8b97a,#a9713a)}
 .escena .emo{position:absolute;left:10px;top:6px;font-size:clamp(30px,6vw,52px);opacity:.75}
-.escena img.fondo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ico{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.ico img{position:absolute;inset:6%;width:88%;height:88%;object-fit:contain;opacity:0}
+.escena img.fondo{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover}
+.ico{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center}
+.ico img{position:absolute;top:6%;right:6%;bottom:6%;left:6%;width:88%;height:88%;object-fit:contain;opacity:0}
 .ico.ok img{opacity:1}
 .ico.ok .em{visibility:hidden}
-.velo{position:absolute;inset:0;pointer-events:none}
+.velo{position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none}
 .velo.noche{background:rgba(14,20,90,.58);mix-blend-mode:multiply}
 .velo.tarde{background:rgba(255,130,40,.32);mix-blend-mode:multiply}
 .velo.alarma{background:rgba(255,0,0,.28);mix-blend-mode:multiply}
-.elenco{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-evenly;gap:1%;padding:0 3%}
+.elenco{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;align-items:flex-end;justify-content:space-evenly;gap:1%;padding:0 3%}
 .pj{position:relative;height:80%;flex:0 1 30%;display:flex;align-items:flex-end;justify-content:center}
 .pj.peque{height:46%;flex-basis:20%}
 .pj img.espejo{transform:translateX(-50%) scaleX(-1)}
 .pj.grande{height:100%;flex-basis:62%}
 .pj img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:100%;max-width:140%;object-fit:contain;object-position:bottom;opacity:0;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.3))}
 .pj.ok img{opacity:1}
+.pj img.cintura{bottom:-7%;height:107%}
 .pj.ok .ph{display:none}
 .ph{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
@@ -131,7 +132,7 @@ h1.titulo{font-size:clamp(36px,9vw,72px);line-height:1;margin:18px 0 6px;text-al
 .tabla{width:100%;border-collapse:collapse;margin:6px 0}
 .tabla td{padding:6px 4px;border-bottom:2px dotted #999}
 .tabla td:last-child{text-align:right;font-weight:700}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px;z-index:9}
+.modal{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px;z-index:9}
 .modal .caja{background:var(--papel);border:5px solid #000;border-radius:18px;padding:18px;max-width:560px;width:100%;max-height:92vh;overflow:auto}
 .inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:10px 0}
 .obj{font:inherit;background:#fff;border:3px solid #000;border-radius:14px;padding:8px 6px;text-align:center;cursor:pointer;font-size:.8em;font-weight:700;color:var(--tinta)}
@@ -162,7 +163,7 @@ h1.titulo{font-size:clamp(36px,9vw,72px);line-height:1;margin:18px 0 6px;text-al
 .suma b{color:var(--amarillo);font-size:1.3em}
 .dado{width:76px;height:76px;transform-style:preserve-3d}
 .cubo{position:relative;width:76px;height:76px;transform-style:preserve-3d}
-.cara{position:absolute;inset:0;background:#fffdf3;border:3px solid #222;border-radius:12px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:8px;backface-visibility:hidden;box-shadow:inset 0 0 8px rgba(0,0,0,.25)}
+.cara{position:absolute;top:0;right:0;bottom:0;left:0;background:#fffdf3;border:3px solid #222;border-radius:12px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:8px;backface-visibility:hidden;box-shadow:inset 0 0 8px rgba(0,0,0,.25)}
 .cara i.p{background:radial-gradient(circle,#c0392b 55%,transparent 60%)}
 .leyenda{display:flex;flex-wrap:wrap;gap:6px;margin:0 18px 12px}
 .tr{flex:1 1 110px;text-align:center;border:3px solid #000;border-radius:12px;padding:3px 4px;font-size:.78em;line-height:1.25;opacity:.5}
@@ -222,7 +223,7 @@ textarea.codigo{width:100%;min-height:110px;font:12px/1.3 monospace;border:3px s
 .comic:nth-child(2){transform:rotate(1deg)}.comic:nth-child(3){transform:rotate(-.5deg)}
 .comic:hover,.comic:focus{transform:rotate(0) scale(1.03)}
 .comic:active{transform:scale(.98)}
-.comic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.comic img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;object-fit:cover}
 .comic .cabecera{position:absolute;left:0;right:0;top:0;padding:6px 8px 4px 64px;background:var(--rojo);border-bottom:4px solid #000;color:var(--amarillo);
   font-weight:900;font-size:clamp(15px,2.6vw,22px);letter-spacing:.04em;text-align:left;-webkit-text-stroke:1px #000;text-shadow:2px 2px 0 #000;line-height:1.1}
 .comic .numero{position:absolute;left:6px;top:6px;width:52px;height:52px;border-radius:50%;background:#fff;border:4px solid #000;display:flex;align-items:center;justify-content:center;
@@ -256,6 +257,15 @@ textarea.codigo{width:100%;min-height:110px;font:12px/1.3 monospace;border:3px s
 .temblor{animation:temblor .4s}
 @keyframes pop{0%{transform:scale(.9);opacity:.3}100%{transform:scale(1);opacity:1}}
 @media (max-width:520px){body{font-size:19px}.form .fila{grid-template-columns:1fr}}
+
+/* Tablets antiguas sin aspect-ratio (iPad con iOS 14 o anterior) */
+@supports not (aspect-ratio:1){
+  .escena{height:calc((100vw - 38px) * .5625);max-height:52vh}
+  @media (min-width:860px){.escena{height:462px}}
+  .comic{height:0;padding-top:150%}
+  .celda{min-height:64px}
+  .simon button{min-height:90px}
+}
 </style>
 </head>
 <body>
@@ -270,7 +280,7 @@ window.SOLO = 2;</script>
    arriba con una expresión. Así los dibujos se reutilizan y no cambian.
    ===================================================================== */
 const SOLO = (typeof window.SOLO === 'number') ? window.SOLO : null;   // edición suelta: solo ese librojuego
-const VERSION = 'V.1.6';
+const VERSION = 'V.1.9';
 function rutaImg(r){ return (typeof IMG!=='undefined' && IMG[r]) || 'img/'+r; }
 const CLAVE = 'librojuego-mateo-v5';
 
@@ -1644,7 +1654,7 @@ function escenaHTML(n){
     const enemigo = ENEMIGOS.includes(c), quiere = !lado ? '' : (enemigo ? (lado==='i'?'d':'i') : (lado==='i'?'i':'d'));
     const nat = (c==='mateo' && prota()!=='mateo') ? '' : miraHacia(c, e), espejo = quiere && nat && nat!==quiere;
     return `<div class="pj ${p.peque?'peque':''} ${p.grande?'grande':''}"><span class="ph">${p.e}<small>${EXPR[e]||''}</small><b>${esc(quien(c))}</b></span>`+
-           `<img class="${espejo?'espejo':''}" src="${rutaImg(imgPj(c,e))}" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div>`;
+           `<img class="${espejo?'espejo':''} ${/^(rex|diva|perro|perroz)$/.test(c)||e==='cuerpo'?'':'cintura'}" src="${rutaImg(imgPj(c,e))}" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div>`;
   }).join('');
   const ono = n.ono ? `<span class="onoma">${esc(n.ono)}</span>` : '';
   return `<div class="escena ${n.cls||''}"><span class="emo">${n.emo||''}</span>${fondo}<div class="elenco">${elenco}</div>${ono}</div>`;
@@ -2321,7 +2331,7 @@ function menuCodigo(){
 }
 
 /* Página de inicio: una portada de cómic por capítulo (img/comic/comicN.jpg) con su número y su título */
-function cambiarIdioma(l){ if(l===IDIOMA) return; try{ localStorage.setItem('apocalipsis-idioma', l); }catch(e){} location.reload(); }
+function cambiarIdioma(l){ if(l===IDIOMA) return; guardar(); try{ localStorage.setItem('apocalipsis-idioma', l); }catch(e){} location.reload(); }
 function portada(){
   voltear('portada');
   const primero = CAPITULOS.findIndex((c,i)=>!S.flags['cap'+(i+1)+'hecho']);
@@ -2500,7 +2510,8 @@ function palabra(w){
 function menu(){
   modal(`<h2 style="margin:0 0 8px">☰ Menú</h2><div class="opciones" style="padding:0">
    <button class="op azul" onclick="cerrarModal();S.node=null;guardar();pintar()">🏠 Ir a la portada (se guarda la partida)</button>
-   <button class="op amar" onclick="cerrarModal();empezar()">🔁 Empezar de nuevo</button></div>`);
+   <button class="op amar" onclick="cerrarModal();empezar()">🔁 Empezar de nuevo</button></div>
+   <div class="idiomas" style="margin-top:12px"><span>🌐</span><button class="${IDIOMA==='es'?'sel':''}" onclick="cambiarIdioma('es')">Castellano</button><button class="${IDIOMA==='ca'?'sel':''}" onclick="cambiarIdioma('ca')">Català</button></div>`);
 }
 /* ---------- leer en voz alta, cada frase en su idioma ---------- */
 function leer(){
@@ -2521,7 +2532,7 @@ pintar();
    arriba con una expresión. Así los dibujos se reutilizan y no cambian.
    ===================================================================== */
 const SOLO = (typeof window.SOLO === 'number') ? window.SOLO : null;   // edición suelta: solo ese librojuego
-const VERSION = 'V.1.6';
+const VERSION = 'V.1.9';
 function rutaImg(r){ return (typeof IMG!=='undefined' && IMG[r]) || 'img/'+r; }
 const CLAVE = 'librojuego-mateo-v5';
 
@@ -3895,7 +3906,7 @@ function escenaHTML(n){
     const enemigo = ENEMIGOS.includes(c), quiere = !lado ? '' : (enemigo ? (lado==='i'?'d':'i') : (lado==='i'?'i':'d'));
     const nat = (c==='mateo' && prota()!=='mateo') ? '' : miraHacia(c, e), espejo = quiere && nat && nat!==quiere;
     return `<div class="pj ${p.peque?'peque':''} ${p.grande?'grande':''}"><span class="ph">${p.e}<small>${EXPR[e]||''}</small><b>${esc(quien(c))}</b></span>`+
-           `<img class="${espejo?'espejo':''}" src="${rutaImg(imgPj(c,e))}" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div>`;
+           `<img class="${espejo?'espejo':''} ${/^(rex|diva|perro|perroz)$/.test(c)||e==='cuerpo'?'':'cintura'}" src="${rutaImg(imgPj(c,e))}" alt="" onload="this.parentNode.classList.add('ok')" onerror="this.remove()"></div>`;
   }).join('');
   const ono = n.ono ? `<span class="onoma">${esc(n.ono)}</span>` : '';
   return `<div class="escena ${n.cls||''}"><span class="emo">${n.emo||''}</span>${fondo}<div class="elenco">${elenco}</div>${ono}</div>`;
@@ -4572,7 +4583,7 @@ function menuCodigo(){
 }
 
 /* Página de inicio: una portada de cómic por capítulo (img/comic/comicN.jpg) con su número y su título */
-function cambiarIdioma(l){ if(l===IDIOMA) return; try{ localStorage.setItem('apocalipsis-idioma', l); }catch(e){} location.reload(); }
+function cambiarIdioma(l){ if(l===IDIOMA) return; guardar(); try{ localStorage.setItem('apocalipsis-idioma', l); }catch(e){} location.reload(); }
 function portada(){
   voltear('portada');
   const primero = CAPITULOS.findIndex((c,i)=>!S.flags['cap'+(i+1)+'hecho']);
@@ -4751,7 +4762,8 @@ function palabra(w){
 function menu(){
   modal(`<h2 style="margin:0 0 8px">☰ Menú</h2><div class="opciones" style="padding:0">
    <button class="op azul" onclick="cerrarModal();S.node=null;guardar();pintar()">🏠 Anar a la portada (es desa la partida)</button>
-   <button class="op amar" onclick="cerrarModal();empezar()">🔁 Començar de nou</button></div>`);
+   <button class="op amar" onclick="cerrarModal();empezar()">🔁 Començar de nou</button></div>
+   <div class="idiomas" style="margin-top:12px"><span>🌐</span><button class="${IDIOMA==='es'?'sel':''}" onclick="cambiarIdioma('es')">Castellà</button><button class="${IDIOMA==='ca'?'sel':''}" onclick="cambiarIdioma('ca')">Català</button></div>`);
 }
 /* ---------- leer en voz alta, cada frase en su idioma ---------- */
 function leer(){

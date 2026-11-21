@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="rumbo-librojuegos-L3">
+<meta name="generator" content="rumbo-librojuegos-L4">
 <title>Librojuegos gratis · Rumbo al Saber</title>
 <meta name="description" content="Librojuegos gratis para Primaria donde tu peque decide: crea su personaje, tira los dados y practica mates, inglés y catalán en plena aventura. Cada serie, una temática.">
 <meta property="og:title" content="Librojuegos gratis · Rumbo al Saber">
@@ -135,19 +135,20 @@ footer a{color:var(--amarillo)}
 /* LIBROJUEGOS (L3): series por temática, cada una con sus entregas.
    Cada entrega se consigue comentando su palabra en su publicación de Instagram; la respuesta automática manda
    https://rumboalsaber.app/librojuego/?llave=<llave>, que la añade a la colección (se guarda en este aparato).
-   Para lanzar una entrega: salida:true, su palabra, su llave y la dirección de su publicación (post).
+   salida: true, o la fecha y hora en que sale (se abre sola ese día, sin volver a subir la página); post: su publicación.
    Para una serie nueva: añadir un bloque a SERIES (archivos <id>-<n>.html e img/<id>-<n>.webp). */
 const IG = 'https://www.instagram.com/cole.rumboalsaber/';
 const SERIES = [
   {id:'zombi', nombre:'Apocalipsis Zombi', texto:'Los mayores se han puesto verdes por culpa de un batido… y solo los niños pueden arreglarlo.',
    archivo:n=>`apocalipsis-zombi-${n}.html`, portada:n=>`img/comic${n}.webp`, entregas:[
     {n:1, titulo:'El batido verde',     palabra:'ZOMBI', llave:'zombi-k7q2', salida:true,  post:''},
-    {n:2, titulo:'Asalto a la cabaña',  palabra:'ÁRBOL', llave:'arbol-m4x9', salida:false, post:''},
-    {n:3, titulo:'El barco del batido', palabra:'BARCO', llave:'barco-t8w3', salida:false, post:''},
+    {n:2, titulo:'Asalto a la cabaña',  palabra:'ÁRBOL', llave:'arbol-m4x9', salida:'2026-12-04T19:30:00+01:00', post:''},
+    {n:3, titulo:'El barco del batido', palabra:'BARCO', llave:'barco-t8w3', salida:'2026-12-11T19:30:00+01:00', post:''},
   ]},
   {id:'fantasia', nombre:'Fantasía', proxima:true, texto:'Una nueva serie de librojuegos en un mundo de magia, dragones y castillos.'},
 ];
 const CLAVE = 'rumbo-librojuegos';
+const salio = e => e.salida===true || (typeof e.salida==='string' && Date.now() >= Date.parse(e.salida));
 function leer(){ try{ return JSON.parse(localStorage.getItem(CLAVE)) || []; }catch(e){ return []; } }
 function guardar(c){ try{ localStorage.setItem(CLAVE, JSON.stringify(c)); }catch(e){} }
 function aviso(t){ const d=document.createElement('div'); d.className='aviso'; d.textContent=t; document.body.appendChild(d); setTimeout(()=>d.classList.add('fuera'), 4200); setTimeout(()=>d.remove(), 5000); }
@@ -169,15 +170,15 @@ function pinta(){
       sec.innerHTML = `<div class="proxima cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Muy pronto</span></div>`;
       R.appendChild(sec); return;
     }
-    const sal = s.entregas.filter(e=>e.salida).length, tengo = s.entregas.filter(e=>col.includes(s.id+'-'+e.n)).length;
+    const sal = s.entregas.filter(salio).length, tengo = s.entregas.filter(e=>col.includes(s.id+'-'+e.n)).length;
     sec.innerHTML = `<div class="cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Tu colección · ${tengo} de ${sal}</span></div><div class="entregas"></div>`;
     const G = sec.querySelector('.entregas');
     s.entregas.forEach(e=>{
       const tiene = col.includes(s.id+'-'+e.n), a = document.createElement('article');
-      a.className = 'ent' + (tiene ? '' : e.salida ? ' falta' : ' prox');
+      a.className = 'ent' + (tiene ? '' : salio(e) ? ' falta' : ' prox');
       let boton;
       if(tiene) boton = `<a class="btn" href="${s.archivo(e.n)}">▶ Jugar</a>`;
-      else if(e.salida) boton = `<a class="btn am" href="${e.post||IG}" target="_blank" rel="noopener"><span>💬 Comenta <b>${e.palabra}</b> y consíguelo</span></a>`;
+      else if(salio(e)) boton = `<a class="btn am" href="${e.post||IG}" target="_blank" rel="noopener"><span>💬 Comenta <b>${e.palabra}</b> y consíguelo</span></a>`;
       else boton = `<span class="btn off">🔒 Muy pronto</span>`;
       a.innerHTML = `<figure><img src="${s.portada(e.n)}" alt="Portada de ${s.nombre} nº${e.n}: ${e.titulo}"><span class="num">Nº${e.n}</span>${tiene?'<span class="tengo">✔ ¡Lo tienes!</span>':''}</figure><h3>${e.titulo}</h3>${boton}`;
       G.appendChild(a);
