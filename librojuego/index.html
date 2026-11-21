@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="rumbo-librojuego-L1">
-<title>Apocalipsis Zombi · Librojuego gratis · Rumbo al Saber</title>
-<meta name="description" content="Un librojuego gratis para Primaria donde tu peque decide: crea su personaje, tira los dados y practica mates, inglés y catalán en plena aventura.">
-<meta property="og:title" content="Apocalipsis Zombi · Librojuego gratis">
-<meta property="og:description" content="Crea tu personaje, decide qué pasa y aprende jugando. Gratis, sin anuncios ni registro.">
+<meta name="generator" content="rumbo-librojuegos-L3">
+<title>Librojuegos gratis · Rumbo al Saber</title>
+<meta name="description" content="Librojuegos gratis para Primaria donde tu peque decide: crea su personaje, tira los dados y practica mates, inglés y catalán en plena aventura. Cada serie, una temática.">
+<meta property="og:title" content="Librojuegos gratis · Rumbo al Saber">
+<meta property="og:description" content="Crea tu personaje, decide qué pasa y aprende jugando. Primera serie: Apocalipsis Zombi. Gratis, sin anuncios ni registro.">
 <meta property="og:image" content="https://rumboalsaber.app/librojuego/img/comic1.webp">
 <link rel="icon" href="../img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,12 +25,12 @@ a{color:inherit}
 /* cabecera */
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 0;color:#fff;font-weight:800;font-size:15px}
 .top a{text-decoration:none;opacity:.9}.top a:hover{opacity:1}
-.hero{text-align:center;color:#fff;padding:18px 0 34px}
-.logo{font:400 clamp(56px,13vw,120px)/.92 "Bangers",Impact,sans-serif;letter-spacing:.03em;color:var(--verde);
-  -webkit-text-stroke:3px #1b0f3a;paint-order:stroke fill;text-shadow:0 6px 0 #1b0f3a;margin:0}
-.sello{display:inline-block;margin-top:14px;font:400 clamp(26px,5vw,40px) "Bangers",Impact,sans-serif;letter-spacing:.08em;color:var(--tinta);
-  background:var(--amarillo);padding:4px 26px;border:3px solid #1b0f3a;border-radius:10px;box-shadow:0 6px 0 #1b0f3a;transform:rotate(-2deg)}
-.hero p{max-width:640px;margin:26px auto 0;font-size:clamp(19px,2.6vw,23px);font-weight:800}
+.hero{text-align:center;color:#fff;padding:18px 0 40px}
+.logo{font:400 clamp(64px,15vw,136px)/.92 "Bangers",Impact,sans-serif;letter-spacing:.04em;color:var(--amarillo);
+  -webkit-text-stroke:3px #1b0f3a;paint-order:stroke fill;text-shadow:0 7px 0 #1b0f3a;margin:0}
+.sello{display:inline-block;margin-top:14px;font:400 clamp(24px,4.6vw,36px) "Bangers",Impact,sans-serif;letter-spacing:.08em;color:var(--tinta);
+  background:#fff;padding:4px 26px;border:3px solid #1b0f3a;border-radius:10px;box-shadow:0 6px 0 #1b0f3a;transform:rotate(-2deg)}
+.hero p{max-width:660px;margin:26px auto 0;font-size:clamp(19px,2.6vw,23px);font-weight:800}
 .hero p b{color:var(--amarillo)}
 /* botones */
 .btn{display:inline-flex;align-items:center;gap:10px;justify-content:center;font:900 20px "Nunito",sans-serif;text-decoration:none;cursor:pointer;
@@ -40,17 +40,38 @@ a{color:inherit}
 .btn.off{background:#d9d2e8;color:#5a4f72;cursor:default;box-shadow:0 6px 0 #6f6490;border-color:#6f6490}
 .btn.off:hover,.btn.off:active{transform:none;box-shadow:0 6px 0 #6f6490}
 .btn.am{background:var(--amarillo);color:var(--tinta)}
-/* entregas */
-.entregas{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:20px}
+/* series */
+.serie{margin:0 0 54px}
+.cab{text-align:center;color:#fff;margin:0 0 24px}
+.cab .ns{display:inline-block;font:900 15px "Nunito",sans-serif;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.14);border-radius:30px;padding:4px 16px}
+.cab h2{margin:12px 0 6px;font:400 clamp(44px,8vw,78px)/.95 "Bangers",sans-serif;letter-spacing:.04em;-webkit-text-stroke:3px #1b0f3a;paint-order:stroke fill;text-shadow:0 6px 0 #1b0f3a;color:var(--verde)}
+.cab p{margin:0 auto;max-width:620px;font-weight:800}
+.cab .cuenta{display:inline-block;margin-top:14px;font:400 26px "Bangers",sans-serif;letter-spacing:.05em;color:var(--tinta);background:var(--amarillo);border:3px solid #1b0f3a;border-radius:12px;padding:2px 16px;box-shadow:0 5px 0 #1b0f3a}
+.entregas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
 .ent{background:var(--crema);border:4px solid #1b0f3a;border-radius:22px;padding:14px 14px 20px;box-shadow:0 10px 0 #1b0f3a;text-align:center;display:flex;flex-direction:column;gap:14px}
 .ent figure{margin:0;position:relative;border:3px solid #1b0f3a;border-radius:12px;overflow:hidden;aspect-ratio:2/3;background:#cfc4e6}
 .ent img{width:100%;height:100%;object-fit:cover;display:block}
 .ent .num{position:absolute;left:10px;top:10px;font:400 26px "Bangers",sans-serif;background:#fff;border:3px solid #1b0f3a;border-radius:50%;width:56px;height:56px;line-height:52px}
 .ent.prox figure img{filter:grayscale(.7) blur(1.5px) brightness(.85)}
-.ent.prox figure::after{content:"Muy pronto";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);font:400 30px "Bangers",sans-serif;letter-spacing:.06em;
-  background:var(--amarillo);border:3px solid #1b0f3a;border-radius:10px;padding:4px 18px;box-shadow:0 5px 0 #1b0f3a;white-space:nowrap}
+.ent.prox figure::after,.ent.falta figure::after{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);font:400 30px "Bangers",sans-serif;letter-spacing:.06em;
+  border:3px solid #1b0f3a;border-radius:10px;padding:4px 18px;box-shadow:0 5px 0 #1b0f3a;white-space:nowrap}
+.ent.prox figure::after{content:"Muy pronto";background:var(--amarillo)}
+.ent.falta figure img{filter:grayscale(1) brightness(.75)}
+.ent.falta figure::after{content:"Te falta";background:#fff}
+.ent .tengo{position:absolute;right:10px;top:12px;font:900 15px "Nunito",sans-serif;background:var(--verde);border:3px solid #1b0f3a;border-radius:30px;padding:3px 12px}
 .ent h3{margin:0;font:400 28px/1 "Bangers",sans-serif;letter-spacing:.04em}
 .ent .btn{width:100%}
+.ent .btn b{font-weight:900;letter-spacing:.03em}
+.ayuda{color:#fff;text-align:center;max-width:640px;margin:24px auto 0;font-weight:700;opacity:.92}
+/* serie próxima */
+.proxima{background:linear-gradient(160deg,#2d1a63,#5b2f8f 55%,#8a4fc0);border:4px solid #1b0f3a;border-radius:26px;box-shadow:0 10px 0 #1b0f3a;
+  color:#fff;text-align:center;padding:40px 24px;position:relative;overflow:hidden}
+.proxima::before{content:"✨  🐉  🏰  🧙  ✨";display:block;font-size:44px;letter-spacing:.2em;margin-bottom:6px}
+.proxima h2{color:var(--amarillo)}
+.proxima .cuenta{background:#fff}
+.aviso{position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:9;max-width:92vw;background:var(--amarillo);color:var(--tinta);font:900 18px "Nunito",sans-serif;
+  border:3px solid #1b0f3a;border-radius:16px;padding:12px 20px;box-shadow:0 6px 0 #1b0f3a;transition:opacity .6s,transform .6s;text-align:center}
+.aviso.fuera{opacity:0;transform:translate(-50%,-20px)}
 /* bloques de texto */
 .caja{background:var(--crema);border:4px solid #1b0f3a;border-radius:26px;box-shadow:0 10px 0 #1b0f3a;padding:30px 28px;margin:46px 0}
 .caja h2{margin:0 0 20px;font:400 clamp(34px,5vw,46px)/1 "Bangers",sans-serif;letter-spacing:.04em;color:var(--morado)}
@@ -58,7 +79,6 @@ a{color:inherit}
 .rasgos article{background:#fff;border:3px solid #1b0f3a;border-radius:18px;padding:16px 18px}
 .rasgos h3{margin:0 0 6px;font-size:21px;font-weight:900}
 .rasgos p{margin:0;color:var(--tinta2)}
-.pandilla{width:100%;border:3px solid #1b0f3a;border-radius:18px;display:block;margin:0 0 22px}
 .lista{margin:0;padding:0;list-style:none;display:grid;gap:12px}
 .lista li{display:flex;gap:12px;align-items:flex-start}
 .lista li span{flex:none;font-size:24px;line-height:1.2}
@@ -74,19 +94,13 @@ footer a{color:var(--amarillo)}
   <div class="top"><a href="/">← Rumbo al Saber</a><a href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener">📸 @cole.rumboalsaber</a></div>
 
   <header class="hero">
-    <h1 class="logo">Apocalipsis<br>Zombi</h1>
-    <div class="sello">Librojuego gratis</div>
-    <p>Los mayores se han puesto verdes por culpa de un batido… y solo los niños pueden arreglarlo. <b>Un librojuego donde tu peque decide.</b></p>
+    <h1 class="logo">Librojuegos</h1>
+    <div class="sello">Gratis · para Primaria</div>
+    <p>Aventuras donde <b>tu peque decide</b>: crea su personaje, tira los dados y aprende jugando. Cada serie tiene su propia temática.</p>
   </header>
 
-  <section class="entregas" id="entregas">
-    <article class="ent" data-n="1"><figure><img src="img/comic1.webp" alt="Portada del nº1: El batido verde"><span class="num">Nº1</span></figure>
-      <h3>El batido verde</h3><a class="btn" href="apocalipsis-zombi-1.html">▶ Jugar gratis</a></article>
-    <article class="ent" data-n="2"><figure><img src="img/comic2.webp" alt="Portada del nº2: Asalto a la cabaña"><span class="num">Nº2</span></figure>
-      <h3>Asalto a la cabaña</h3><a class="btn" href="apocalipsis-zombi-2.html">▶ Jugar gratis</a></article>
-    <article class="ent" data-n="3"><figure><img src="img/comic3.webp" alt="Portada del nº3: El barco del batido"><span class="num">Nº3</span></figure>
-      <h3>El barco del batido</h3><a class="btn" href="apocalipsis-zombi-3.html">▶ Jugar gratis</a></article>
-  </section>
+  <div id="series"></div>
+  <p class="ayuda">Cada entrega se consigue en Instagram: comenta la palabra de su publicación y te mandamos por privado el enlace que la añade a tu colección.</p>
 
   <section class="caja">
     <h2>¿Cómo se juega?</h2>
@@ -100,13 +114,12 @@ footer a{color:var(--amarillo)}
 
   <section class="caja">
     <h2>Para las familias</h2>
-    <img class="pandilla" src="img/pandilla.webp" alt="La pandilla corriendo por la calle con los zombis detrás" loading="lazy">
     <ul class="lista">
       <li><span>✅</span><div><b>Gratis, sin anuncios y sin registro.</b> Se juega en el navegador de la tableta o del ordenador, y también en el móvil.</div></li>
       <li><span>🌍</span><div>En <b>castellano o en catalán</b>, a elegir en la portada.</div></li>
-      <li><span>😄</span><div><b>Humor, no miedo.</b> Los zombis son vecinos que se han puesto verdes por un batido, y tienen cura. Pensado para Primaria.</div></li>
-      <li><span>💾</span><div><b>El avance se guarda en tu aparato</b> y pasa a la siguiente entrega. Si cambias de aparato, usa el <b>🔑 código de partida</b>: se copia al terminar y se pega al empezar.</div></li>
-      <li><span>🔒</span><div>No pedimos ningún dato: la partida se queda en tu aparato. Más información en la <a href="/privacidad.html">política de privacidad</a>.</div></li>
+      <li><span>😄</span><div><b>Humor, no miedo.</b> Pensados para Primaria: en Apocalipsis Zombi, los zombis son vecinos que se han puesto verdes por un batido, y tienen cura.</div></li>
+      <li><span>💾</span><div><b>El avance se guarda en tu aparato</b> y pasa a la siguiente entrega de la serie. Si cambias de aparato, usa el <b>🔑 código de partida</b>: se copia al terminar y se pega al empezar.</div></li>
+      <li><span>🔒</span><div>No pedimos ningún dato: la partida y la colección se quedan en tu aparato. Más información en la <a href="/privacidad.html">política de privacidad</a>.</div></li>
     </ul>
   </section>
 
@@ -119,13 +132,60 @@ footer a{color:var(--amarillo)}
   <footer>Rumbo al Saber · <a href="mailto:hola@rumboalsaber.app">hola@rumboalsaber.app</a> · <a href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener">Instagram</a></footer>
 </div>
 <script>
-/* Entregas que ya se pueden jugar. Andrés las irá abriendo: añadir el número aquí. */
-const DISPONIBLES = [1];
-document.querySelectorAll('.ent').forEach(e=>{
-  if(DISPONIBLES.includes(+e.dataset.n)) return;
-  e.classList.add('prox'); const a=e.querySelector('.btn');
-  a.classList.add('off'); a.removeAttribute('href'); a.textContent='🔒 Muy pronto';
-});
+/* LIBROJUEGOS (L3): series por temática, cada una con sus entregas.
+   Cada entrega se consigue comentando su palabra en su publicación de Instagram; la respuesta automática manda
+   https://rumboalsaber.app/librojuego/?llave=<llave>, que la añade a la colección (se guarda en este aparato).
+   Para lanzar una entrega: salida:true, su palabra, su llave y la dirección de su publicación (post).
+   Para una serie nueva: añadir un bloque a SERIES (archivos <id>-<n>.html e img/<id>-<n>.webp). */
+const IG = 'https://www.instagram.com/cole.rumboalsaber/';
+const SERIES = [
+  {id:'zombi', nombre:'Apocalipsis Zombi', texto:'Los mayores se han puesto verdes por culpa de un batido… y solo los niños pueden arreglarlo.',
+   archivo:n=>`apocalipsis-zombi-${n}.html`, portada:n=>`img/comic${n}.webp`, entregas:[
+    {n:1, titulo:'El batido verde',     palabra:'ZOMBI', llave:'zombi-k7q2', salida:true,  post:''},
+    {n:2, titulo:'Asalto a la cabaña',  palabra:'ÁRBOL', llave:'arbol-m4x9', salida:false, post:''},
+    {n:3, titulo:'El barco del batido', palabra:'BARCO', llave:'barco-t8w3', salida:false, post:''},
+  ]},
+  {id:'fantasia', nombre:'Fantasía', proxima:true, texto:'Una nueva serie de librojuegos en un mundo de magia, dragones y castillos.'},
+];
+const CLAVE = 'rumbo-librojuegos';
+function leer(){ try{ return JSON.parse(localStorage.getItem(CLAVE)) || []; }catch(e){ return []; } }
+function guardar(c){ try{ localStorage.setItem(CLAVE, JSON.stringify(c)); }catch(e){} }
+function aviso(t){ const d=document.createElement('div'); d.className='aviso'; d.textContent=t; document.body.appendChild(d); setTimeout(()=>d.classList.add('fuera'), 4200); setTimeout(()=>d.remove(), 5000); }
+let col = leer();   // lista de «serie-n», p. ej. «zombi-1»
+const ll = new URLSearchParams(location.search).get('llave');
+if(ll){
+  for(const s of SERIES) for(const e of (s.entregas||[])) if(e.llave===ll){
+    const k = s.id+'-'+e.n, nueva = !col.includes(k);
+    if(nueva){ col.push(k); guardar(col); }
+    aviso(nueva ? `🎉 ¡${s.nombre} nº${e.n}, «${e.titulo}», ya está en tu colección!` : `${s.nombre} nº${e.n} ya estaba en tu colección.`);
+  }
+  history.replaceState(null, '', location.pathname);
+}
+function pinta(){
+  const R = document.getElementById('series'); R.innerHTML = '';
+  SERIES.forEach((s, i)=>{
+    const sec = document.createElement('section'); sec.className = 'serie';
+    if(s.proxima){
+      sec.innerHTML = `<div class="proxima cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Muy pronto</span></div>`;
+      R.appendChild(sec); return;
+    }
+    const sal = s.entregas.filter(e=>e.salida).length, tengo = s.entregas.filter(e=>col.includes(s.id+'-'+e.n)).length;
+    sec.innerHTML = `<div class="cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Tu colección · ${tengo} de ${sal}</span></div><div class="entregas"></div>`;
+    const G = sec.querySelector('.entregas');
+    s.entregas.forEach(e=>{
+      const tiene = col.includes(s.id+'-'+e.n), a = document.createElement('article');
+      a.className = 'ent' + (tiene ? '' : e.salida ? ' falta' : ' prox');
+      let boton;
+      if(tiene) boton = `<a class="btn" href="${s.archivo(e.n)}">▶ Jugar</a>`;
+      else if(e.salida) boton = `<a class="btn am" href="${e.post||IG}" target="_blank" rel="noopener"><span>💬 Comenta <b>${e.palabra}</b> y consíguelo</span></a>`;
+      else boton = `<span class="btn off">🔒 Muy pronto</span>`;
+      a.innerHTML = `<figure><img src="${s.portada(e.n)}" alt="Portada de ${s.nombre} nº${e.n}: ${e.titulo}"><span class="num">Nº${e.n}</span>${tiene?'<span class="tengo">✔ ¡Lo tienes!</span>':''}</figure><h3>${e.titulo}</h3>${boton}`;
+      G.appendChild(a);
+    });
+    R.appendChild(sec);
+  });
+}
+pinta();
 </script>
 <script>(function(t){if(location.hostname!=="rumboalsaber.app"||t.indexOf("PON-")===0)return;var e=document.createElement("script");e.defer=true;e.src="https://static.cloudflareinsights.com/beacon.min.js";e.setAttribute("data-cf-beacon",JSON.stringify({token:t}));document.head.appendChild(e)})("4c77adae5a2a41a4a933237ddebae721");</script>
 </body>
