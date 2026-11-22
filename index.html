@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumbo al Saber</title>
-<meta name="version" content="rumbo-web-R18 demo-V.1.19">
+<meta name="version" content="rumbo-web-R21 demo-V.1.19">
 <meta name="description" content="Rumbo al Saber: la app que acompaña a tu hijo en 4.º de Primaria. Currículo oficial LOMLOE explicado con infografías y voz, seguimiento para la familia, ajustes para la dislexia y el TDAH, sin anuncios. Una plataforma que suma un curso nuevo cada año.">
 <link rel="icon" href="img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +56,12 @@ section{position:relative}
 .prize button{--pb:#9a6a18}.prize button.rv{--pb:#3a3918}
 .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 
+.tiendas{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 -6px -12px}
+.tiendas[hidden],.tienda[hidden]{display:none}
+.tienda{display:inline-block;line-height:0;border-radius:14px;transition:transform .12s ease}
+.tienda:hover{transform:translateY(-2px)}
+.tienda img{height:84px;width:auto;display:block}
+@media(max-width:600px){.tienda img{height:72px}}
 /* ---------- NAV ---------- */
 nav{position:fixed;top:14px;left:12px;right:12px;margin:0 auto;max-width:1160px;z-index:50;
   display:flex;align-items:center;gap:14px;padding:10px 12px 10px 18px;border-radius:999px;
@@ -920,8 +926,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <a class="btn ghost" href="#ventajas" data-ca="Què aporta a la família">Qué aporta a la familia</a>
         <a class="btn ghost" href="#app" data-ca="Mira l'app per dins">Mira la app por dentro</a>
       </div>
+      <div class="tiendas reveal d3" data-tiendas hidden>
+        <a class="tienda" data-tienda="gplay" href="#" target="_blank" rel="noopener" hidden data-ca='<img src="img/tiendas/google-play-ca.webp" width="646" height="250" alt="Baixa a Google Play">'><img src="img/tiendas/google-play-es.webp" width="646" height="250" alt="Disponible en Google Play"></a>
+      </div>
       <div class="chips reveal d3">
-        <span class="chip"><b>53</b> <span data-ca="unitats del currículum oficial">unidades del currículo oficial</span></span>
+        <span class="chip"><b>57</b> <span data-ca="unitats del currículum oficial">unidades del currículo oficial</span></span>
         <span class="chip"><b>0</b> <span data-ca="anuncis">anuncios</span></span>
         <span class="chip"><b>+1</b> <span data-ca="curs nou cada any">curso nuevo cada año</span></span>
       </div>
@@ -1011,7 +1020,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     <div class="sec-head">
       <div>
         <span class="eyebrow reveal" data-ca="Temari oficial de 4t">Temario oficial de 4.º</span>
-        <h2 class="reveal d1" data-ca="53 unitats, <em>tot el curs.</em>">53 unidades, <em>todo el curso.</em></h2>
+        <h2 class="reveal d1" data-ca="57 unitats, <em>tot el curs.</em>">57 unidades, <em>todo el curso.</em></h2>
       </div>
       <p class="lead reveal d2" data-ca="Cada unitat segueix els sabers bàsics del currículum oficial de la LOMLOE per a 4t de Primària, el segon curs del segon cicle, i s'agrupa en els mateixos blocs que marca la normativa, perquè qualsevol mestre reconegui on encaixa cada cosa. Aquesta primera versió s'ha contrastat, saber per saber, amb el currículum de les Illes Balears; les adaptacions als currículums d'altres comunitats arribaran més endavant.">Cada unidad sigue los saberes básicos del currículo oficial de la LOMLOE para 4.º de Primaria, el segundo curso del segundo ciclo, y se agrupa en los mismos bloques que marca la normativa, para que cualquier maestro reconozca dónde encaja cada cosa. Esta primera versión se ha contrastado, saber por saber, con el currículo de las Illes Balears; las adaptaciones a los currículos de otras comunidades llegarán más adelante.</p>
     </div>
@@ -1024,15 +1033,15 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
     </div>
 
     <div class="tstats reveal">
-      <div><b>53</b><span data-ca="unitats">unidades</span></div>
-      <div><b>360</b><span data-ca="pàgines de lliçó amb infografia i veu">páginas de lección con infografía y voz</span></div>
-      <div><b>1.300+</b><span data-ca="preguntes de comprensió, pràctica i repte">preguntas de comprensión, práctica y reto</span></div>
-      <div><b>53</b><span data-ca="minijocs, un per unitat">minijuegos, uno por unidad</span></div>
+      <div><b>57</b><span data-ca="unitats">unidades</span></div>
+      <div><b>396</b><span data-ca="pàgines de lliçó amb infografia i veu">páginas de lección con infografía y voz</span></div>
+      <div><b>1.400+</b><span data-ca="preguntes de comprensió, pràctica i repte">preguntas de comprensión, práctica y reto</span></div>
+      <div><b>57</b><span data-ca="minijocs, un per unitat">minijuegos, uno por unidad</span></div>
     </div>
     <div class="tcols">
       <article class="tcol reveal "><header><img src="img/app/arc_medi.webp" alt=""><div><h3 data-ca="Coneixement del Medi">Conocimiento del Medio</h3>
-      <p class="tnum"><b>14</b> <span data-ca="unitats">unidades</span> · <b>101</b> <span data-ca="pàgines">páginas</span> · <b>367</b> <span data-ca="preguntes">preguntas</span></p></div></header>
-      <div class="tblk"><h4><i>A</i><span data-ca="Cultura científica">Cultura científica</span><em>6</em></h4><ul><li><span data-ca="🔬 Com treballa la ciència">🔬 Cómo trabaja la ciencia</span></li><li><span data-ca="🌿 Els éssers vius i les plantes">🌿 Los seres vivos y las plantas</span></li><li><span data-ca="🦎 Els animals i les seves adaptacions">🦎 Los animales y sus adaptaciones</span></li><li><span data-ca="❤️ El cos humà i la salut">❤️ El cuerpo humano y la salud</span></li><li><span data-ca="🏞️ Ecosistemes i espais naturals">🏞️ Ecosistemas y espacios naturales</span></li><li><span data-ca="⚗️ La matèria, les forces i l&#x27;energia">⚗️ La materia, las fuerzas y la energía</span></li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Tecnologia i digitalització">Tecnología y digitalización</span><em>2</em></h4><ul><li><span data-ca="💻 Aparells digitals i seguretat">💻 Aparatos digitales y seguridad</span></li><li><span data-ca="⚙️ Projectes i programació">⚙️ Proyectos y programación</span></li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Societats i territoris">Sociedades y territorios</span><em>6</em></h4><ul><li><span data-ca="🌋 La Terra viva">🌋 La Tierra viva</span></li><li><span data-ca="🏝️ Les Illes Balears i les Pitiüses">🏝️ Las Illes Balears y las Pitiusas</span></li><li><span data-ca="⛰️ Relleu, clima i paisatge">⛰️ Relieve, clima y paisaje</span></li><li><span data-ca="⏳ Viatjar en el temps">⏳ Viajar en el tiempo</span></li><li><span data-ca="🏺 Dels talaiots als romans">🏺 De los talayots a los romanos</span></li><li><span data-ca="🏛️ Vivim en societat">🏛️ Vivimos en sociedad</span></li></ul></div></article>
+      <p class="tnum"><b>14</b> <span data-ca="unitats">unidades</span> · <b>113</b> <span data-ca="pàgines">páginas</span> · <b>393</b> <span data-ca="preguntes">preguntas</span></p></div></header>
+      <div class="tblk"><h4><i>A</i><span data-ca="Cultura científica">Cultura científica</span><em>6</em></h4><ul><li><span data-ca="🔬 Com treballa la ciència">🔬 Cómo trabaja la ciencia</span></li><li><span data-ca="🌿 Els éssers vius i les plantes">🌿 Los seres vivos y las plantas</span></li><li><span data-ca="🦎 Els animals i les seves adaptacions">🦎 Los animales y sus adaptaciones</span></li><li><span data-ca="❤️ El cos humà i la salut">❤️ El cuerpo humano y la salud</span></li><li><span data-ca="🏞️ Ecosistemes i espais naturals">🏞️ Ecosistemas y espacios naturales</span></li><li><span data-ca="⚗️ La matèria, les forces i l&#x27;energia">⚗️ La materia, las fuerzas y la energía</span></li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Tecnologia i digitalització">Tecnología y digitalización</span><em>2</em></h4><ul><li><span data-ca="💻 Aparells digitals i seguretat">💻 Aparatos digitales y seguridad</span></li><li><span data-ca="⚙️ Projectes i programació">⚙️ Proyectos y programación</span></li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Societats i territoris">Sociedades y territorios</span><em>6</em></h4><ul><li><span data-ca="🌋 La Terra viva">🌋 La Tierra viva</span></li><li><span data-ca="🗺️ Espanya i les seves comunitats">🗺️ España y sus comunidades</span></li><li><span data-ca="⛰️ Relleu, clima i paisatge d&#x27;Espanya">⛰️ Relieve, clima y paisaje de España</span></li><li><span data-ca="⏳ Viatjar en el temps">⏳ Viajar en el tiempo</span></li><li><span data-ca="🏺 De la prehistòria als romans">🏺 De la prehistoria a los romanos</span></li><li><span data-ca="🏛️ Vivim en societat">🏛️ Vivimos en sociedad</span></li></ul></div></article>
       <article class="tcol reveal d1"><header><img src="img/app/arc_mates.webp" alt=""><div><h3 data-ca="Matemàtiques">Matemáticas</h3>
       <p class="tnum"><b>13</b> <span data-ca="unitats">unidades</span> · <b>84</b> <span data-ca="pàgines">páginas</span> · <b>306</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Nombres i operacions">Números y operaciones</span><em>6</em></h4><ul><li><span data-ca="🔢 Números fins al 99.999">🔢 Números hasta el 99.999</span></li><li><span data-ca="➕ Sumar i restar amb soltesa">➕ Sumar y restar con soltura</span></li><li><span data-ca="✖️ Multiplicar: taules i estratègies">✖️ Multiplicar: tablas y estrategias</span></li><li><span data-ca="➗ Dividir i repartir">➗ Dividir y repartir</span></li><li><span data-ca="🍕 Fraccions: parts d&#x27;un tot">🍕 Fracciones: partes de un todo</span></li><li><span data-ca="💶 Euros i cèntims">💶 Euros y céntimos</span></li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="La mesura">La medida</span><em>2</em></h4><ul><li><span data-ca="📏 Llargada, massa, capacitat i angles">📏 Longitud, masa, capacidad y ángulos</span></li><li><span data-ca="⏰ El temps: rellotge i durades">⏰ El tiempo: reloj y duraciones</span></li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Geometria i espai">Geometría y espacio</span><em>2</em></h4><ul><li><span data-ca="📐 Figures, cossos i perímetre">📐 Figuras, cuerpos y perímetro</span></li><li><span data-ca="🧭 Plànols, itineraris i simetries">🧭 Planos, itinerarios y simetrías</span></li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Patrons i relacions">Patrones y relaciones</span><em>1</em></h4><ul><li><span data-ca="🧩 Patrons, igualtat i algorismes">🧩 Patrones, igualdad y algoritmos</span></li></ul></div><div class="tblk"><h4><i>E</i><span data-ca="Estadística i probabilitat">Estadística y probabilidad</span><em>2</em></h4><ul><li><span data-ca="📊 Dades, gràfics i atzar">📊 Datos, gráficos y azar</span></li><li><span data-ca="🎲 Dades i atzar II">🎲 Datos y azar II</span></li></ul></div></article>
@@ -1040,11 +1049,11 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="tnum"><b>9</b> <span data-ca="unitats">unidades</span> · <b>59</b> <span data-ca="pàgines">páginas</span> · <b>223</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Les llengües i els seus parlants">Las lenguas y sus hablantes</span><em>1</em></h4><ul><li>🗣️ Las lenguas a nuestro alrededor</li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Comunicació">Comunicación</span><em>3</em></h4><ul><li>📖 Leer y entender</li><li>✍️ Escribir bien</li><li>📖 Leer de verdad</li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Educació literària">Educación literaria</span><em>1</em></h4><ul><li>📜 Cuentos, poemas y leyendas</li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Reflexió sobre la llengua">Reflexión sobre la lengua</span><em>4</em></h4><ul><li>🔤 Las clases de palabras</li><li>📝 Acentos y significados</li><li>✏️ Ortografía I: letras que suenan igual</li><li>🔤 Ortografía II: un sonido, varias letras</li></ul></div><div class="tblk tnote"><p data-ca="El contingut va en castellà en els dos idiomes de l'app, perquè és la llengua d'estudi.">El contenido va en castellano en los dos idiomas de la app, porque es la lengua de estudio.</p></div></article>
       <article class="tcol reveal d3"><header><img src="img/app/flag_ca.webp" alt=""><div><h3 data-ca="Llengua Catalana">Lengua Catalana</h3>
-      <p class="tnum"><b>9</b> <span data-ca="unitats">unidades</span> · <b>73</b> <span data-ca="pàgines">páginas</span> · <b>235</b> <span data-ca="preguntes">preguntas</span></p></div></header>
+      <p class="tnum"><b>9</b> <span data-ca="unitats">unidades</span> · <b>73</b> <span data-ca="pàgines">páginas</span> · <b>236</b> <span data-ca="preguntes">preguntas</span></p></div></header>
       <div class="tblk"><h4><i>A</i><span data-ca="Les llengües i els parlants">Las lenguas y sus hablantes</span><em>1</em></h4><ul><li>🗺️ Les llengües del nostre voltant</li></ul></div><div class="tblk"><h4><i>B</i><span data-ca="Comunicació">Comunicación</span><em>3</em></h4><ul><li>📖 Llegir i entendre</li><li>✍️ Escriure bé</li><li>🎤 Parlar i escoltar</li></ul></div><div class="tblk"><h4><i>C</i><span data-ca="Educació literària">Educación literaria</span><em>1</em></h4><ul><li>📜 Rondalles, poemes i llegendes</li></ul></div><div class="tblk"><h4><i>D</i><span data-ca="Reflexió sobre la llengua">Reflexión sobre la lengua</span><em>4</em></h4><ul><li>🔤 Les classes de paraules</li><li>📝 Accents i significats</li><li>✏️ Ortografia I: l'apòstrof i les lletres</li><li>🖋️ Ortografia II: dígrafs i signes</li></ul></div><div class="tblk tnote"><p data-ca="El contingut va en català en els dos idiomes de l'app, perquè és la llengua d'estudi: català central, amb una làmina pròpia a cada lliçó. La tutora és l'Eva, la mestra de català.">El contenido va en catalán en los dos idiomas de la app, porque es la lengua de estudio: catalán central, con una lámina propia en cada lección. La tutora es Eva, la maestra de catalán.</p></div></article>
       <article class="tcol reveal d3"><header><img src="img/app/flag_en.webp" alt=""><div><h3 data-ca="Anglès">Inglés</h3>
-      <p class="tnum"><b>8</b> <span data-ca="unitats">unidades</span> · <b>43</b> <span data-ca="pàgines">páginas</span> · <b>173</b> <span data-ca="preguntes">preguntas</span></p></div></header>
-      <div class="tblk"><h4><i>1</i><span data-ca="El meu món i jo">Mi mundo y yo</span><em>4</em></h4><ul><li>👋 Hello! Saludar y presentarse</li><li>👨‍👩‍👧 My family</li><li>🏠 My house</li><li>🏫 At school</li></ul></div><div class="tblk"><h4><i>2</i><span data-ca="El meu dia i la meva ciutat">Mi día y mi ciudad</span><em>4</em></h4><ul><li>⏰ My day</li><li>🍎 Food</li><li>🧥 Clothes and weather</li><li>🏘️ My town</li></ul></div>
+      <p class="tnum"><b>12</b> <span data-ca="unitats">unidades</span> · <b>67</b> <span data-ca="pàgines">páginas</span> · <b>265</b> <span data-ca="preguntes">preguntas</span></p></div></header>
+      <div class="tblk"><h4><i>1</i><span data-ca="El meu món i jo">Mi mundo y yo</span><em>4</em></h4><ul><li>👋 Hello! Saludar y presentarse</li><li>👨‍👩‍👧 My family</li><li>🏠 My house</li><li>🏫 At school</li></ul></div><div class="tblk"><h4><i>2</i><span data-ca="El meu dia i la meva ciutat">Mi día y mi ciudad</span><em>4</em></h4><ul><li>⏰ My day</li><li>🍎 Food</li><li>🧥 Clothes and weather</li><li>🏘️ My town</li></ul></div><div class="tblk"><h4><i>3</i><span data-ca="Lleure, natura i cultures">Ocio, naturaleza y culturas</span><em>4</em></h4><ul><li>🦁 Animals</li><li>⚽ Free time</li><li>🎃 Festivals</li><li>📖 Stories</li></ul></div>
       <div class="tblk tnote"><h4><i>✦</i><span data-ca="Com s'aprèn">Cómo se aprende</span></h4><p data-ca="L'explicació va en català o castellà; tot el que és anglès surt en un recuadre que es llegeix amb veu anglesa. Preguntes d'escoltar, d'escriure i d'ordenar frases.">La explicación va en castellano o catalán; todo lo que es inglés sale en un recuadro que se lee con voz inglesa. Preguntas de escuchar, de escribir y de ordenar frases.</p></div></article>
     </div>
     <div class="tunit reveal">
@@ -1196,7 +1205,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
         <span class="n">4.º</span><br>
         <span class="tag" data-ca="Disponible">Disponible</span>
         <h3 data-ca="4t de Primària">4.º de Primaria</h3>
-        <p data-ca="Coneixement del Medi, Matemàtiques, Llengua Castellana, Llengua Catalana i Anglès, amb 53 unitats. L'app és gratuïta i es pot provar amb la demo.">Conocimiento del Medio, Matemáticas, Lengua Castellana, Lengua Catalana e Inglés, con 53 unidades. La app es gratuita y se puede probar con la demo.</p>
+        <p data-ca="Coneixement del Medi, Matemàtiques, Llengua Castellana, Llengua Catalana i Anglès, amb 57 unitats. L'app és gratuïta i es pot provar amb la demo.">Conocimiento del Medio, Matemáticas, Lengua Castellana, Lengua Catalana e Inglés, con 57 unidades. La app es gratuita y se puede probar con la demo.</p>
       </article>
       <article class="reveal d1">
         <span class="n">+1</span><br>
@@ -1542,17 +1551,17 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       </article>
       <article class="reveal d1">
         <span class="n">02</span><br>
-        <span class="tag" data-ca="Assignatures">Asignaturas</span>
-        <h3 data-ca="Més assignatures">Más asignaturas</h3>
-        <p data-ca="El tercer trimestre d'anglès, amb la Marta.">El tercer trimestre de inglés, con Marta.</p>
-        <div class="pics"><span class="lt" style="background:linear-gradient(180deg,#5b8fd6,#2f64ad)">En</span></div>
-      </article>
-      <article class="reveal d2">
-        <span class="n">03</span><br>
         <span class="tag" data-ca="Cursos">Cursos</span>
         <h3 data-ca="5è de Primària">5.º de Primaria</h3>
         <p data-ca="L'any que ve hi sumarem 5è de Primària, amb tot el seu temari, perquè l'aprenentatge continuï d'un curs al següent.">El año que viene sumaremos 5.º de Primaria, con todo su temario, para que el aprendizaje continúe de un curso al siguiente.</p>
         <div class="pics"><span class="lt" style="width:auto;padding:0 12px;background:linear-gradient(180deg,#6cc083,#3a9a5b)">5.º</span></div>
+      </article>
+      <article class="reveal d2">
+        <span class="n">03</span><br>
+        <span class="tag" data-ca="Cursos">Cursos</span>
+        <h3 data-ca="6è de Primària">6.º de Primaria</h3>
+        <p data-ca="Després arribarà 6è de Primària, per acompanyar l'alumne fins al final de l'etapa.">Después llegará 6.º de Primaria, para acompañar al alumno hasta el final de la etapa.</p>
+        <div class="pics"><span class="lt" style="width:auto;padding:0 12px;background:linear-gradient(180deg,#5b8fd6,#2f64ad)">6.º</span></div>
       </article>
     </div>
   </div>
@@ -1564,7 +1573,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
   <div class="logos">
     <img class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
   </div>
-  <small>© 2026 Rumbo al Saber · <span data-ca="Web R18">Web R18</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a><a class="ftig" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg><span>@cole.rumboalsaber</span></a></small>
+  <small>© 2026 Rumbo al Saber · <span data-ca="Web R21">Web R21</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a><a class="ftig" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg><span>@cole.rumboalsaber</span></a></small>
 </footer>
 
 <script>
@@ -1586,6 +1595,11 @@ function buildCoin(el){
   el.innerHTML=h;
 }
 $$('[data-coin]').forEach(buildCoin);
+
+/* ---------- tiendas ----------
+   Escribe aquí el enlace de la ficha cuando la app esté publicada; con el enlace vacío, el distintivo no se ve. */
+const TIENDAS={gplay:""};
+$$('[data-tienda]').forEach(a=>{const u=TIENDAS[a.dataset.tienda];if(u){a.href=u;a.hidden=false;a.closest('[data-tiendas]').hidden=false}});
 
 /* ---------- idioma ---------- */
 $$('[data-ca]').forEach(el=>el.dataset.es=el.innerHTML);
