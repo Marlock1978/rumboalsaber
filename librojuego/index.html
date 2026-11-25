@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="rumbo-librojuegos-L4">
+<meta name="generator" content="rumbo-librojuegos-L5">
 <title>Librojuegos gratis · Rumbo al Saber</title>
 <meta name="description" content="Librojuegos gratis para Primaria donde tu peque decide: crea su personaje, tira los dados y practica mates, inglés y catalán en plena aventura. Cada serie, una temática.">
 <meta property="og:title" content="Librojuegos gratis · Rumbo al Saber">
@@ -145,7 +145,11 @@ const SERIES = [
     {n:2, titulo:'Asalto a la cabaña',  palabra:'ÁRBOL', llave:'arbol-m4x9', salida:'2026-12-04T19:30:00+01:00', post:''},
     {n:3, titulo:'El barco del batido', palabra:'BARCO', llave:'barco-t8w3', salida:'2026-12-11T19:30:00+01:00', post:''},
   ]},
-  {id:'fantasia', nombre:'Fantasía', proxima:true, texto:'Una nueva serie de librojuegos en un mundo de magia, dragones y castillos.'},
+  {id:'fantasia', nombre:'El Libro Mágico', texto:'Un libro de hechizos que estornuda, un brujo despistado y un castillo lleno de magia… y solo tú puedes poner orden.',
+   archivo:n=>`el-libro-magico-${n}.html`, portada:n=>`img/fantasia-${n}.webp`, entregas:[
+    {n:1, titulo:'El libro que estornudó',            palabra:'MAGIA',  llave:'magia-r5w8',  salida:'2026-12-18T19:30:00+01:00', post:''},
+    {n:2, titulo:'El bosque de las páginas perdidas', palabra:'BOSQUE', llave:'bosque-h3n6', salida:'2027-01-08T19:30:00+01:00', post:''},
+  ]},
 ];
 const CLAVE = 'rumbo-librojuegos';
 const salio = e => e.salida===true || (typeof e.salida==='string' && Date.now() >= Date.parse(e.salida));
@@ -170,7 +174,7 @@ function pinta(){
       sec.innerHTML = `<div class="proxima cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Muy pronto</span></div>`;
       R.appendChild(sec); return;
     }
-    const sal = s.entregas.filter(salio).length, tengo = s.entregas.filter(e=>col.includes(s.id+'-'+e.n)).length;
+    const sal = s.entregas.filter(e=>salio(e) || col.includes(s.id+'-'+e.n)).length, tengo = s.entregas.filter(e=>col.includes(s.id+'-'+e.n)).length;
     sec.innerHTML = `<div class="cab"><span class="ns">Serie ${i+1}</span><h2>${s.nombre}</h2><p>${s.texto}</p><span class="cuenta">Tu colección · ${tengo} de ${sal}</span></div><div class="entregas"></div>`;
     const G = sec.querySelector('.entregas');
     s.entregas.forEach(e=>{
