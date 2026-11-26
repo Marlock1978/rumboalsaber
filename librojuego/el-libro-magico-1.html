@@ -467,7 +467,7 @@ ol.diario li,ul.diario li{margin:6px 0}
 /* =====================================================================
    EL LIBRO MÁGICO nº1 · El libro que estornudó · versión LM.0.1
    ===================================================================== */
-const VERSION='LM.1.10';
+const VERSION='LM.1.12';
 const CLAVE='libro-magico-n1';
 
 /* ---------- Imágenes (rutas completas: el empaquetador las sustituye) ---------- */
@@ -636,15 +636,17 @@ const HABIL={
  corazon:{e:'❤️',n:'Corazón valiente',d:'+2 de vida máxima para siempre',xp:20},
  trucoExtra:{e:'🔁',n:'Truco extra',d:'+1 uso del truco de oficio en cada librojuego',xp:20},
  experto:{e:'🔍',n:'Ojo de experto',d:'Antes de elegir, ves qué opción es la más fácil para tu personaje',xp:25},
- educado:{e:'👜',n:'Bolsillo educado',d:'La primera vez que el bolsillo se iba a comer algo, te lo devuelve con un «perdón»',xp:15}
+ educado:{e:'👜',n:'Bolsillo educado',d:'La primera vez que el bolsillo se iba a comer algo, te lo devuelve con un «perdón»',xp:15},
+ /* Nuevas del nº1 (Andrés 26-11-2026: «en cada libro hay que poner nuevas habilidades para comprar») */
+ estomago:{e:'🍲',n:'Estómago de hierro',d:'Todo lo que comes o bebes (bollos, moras, leche, pociones…) te cura 1 ❤️ más',xp:15,nuevo:'nº1'}
 };
 
 /* ---------- Combates ---------- */
 /* Tipos de daño (LM.1.0): el punto débil hace 1 herida más; las cosquillas, ninguna */
 const TIPOS={corte:{e:'🗡️',n:'Corte'},golpe:{e:'🔨',n:'Golpe'},disparo:{e:'🎯',n:'Disparo'},fuego:{e:'🔥',n:'Fuego'},agua:{e:'💧',n:'Agua'}};
 const ENEMIGOS={
- clanc:{n:'Sir Clanc',vida:3,xp:4,to:'s8',debil:['golpe'],cosq:['corte','disparo'],
-  pista:'**TINTA (sentada en un escudo, lamiéndose una pata):** Es de hierro. Las espadas y las flechas le rebotan: solo le hacen cosquillas. Pero un buen golpe lo abolla.',
+ clanc:{n:'Sir Clanc',vida:3,xp:4,to:'s8',baile:1,debil:['golpe'],cosq:['corte','disparo'],
+  pista:'**TINTA (sentada en un escudo, lamiéndose una pata):** No le mires la espada: mírale los pies. Y cuenta los pasos en voz baja.',
   esp:[
    {est:'labia',ico:'🗣️',t:'Engañarle: decirle que lleva la visera sucia',
     ex:'«Oiga, Sir Clanc, lleva la visera llena de huellas». Sir Clanc se mira en su espada, horrorizado. «¡Qué vergüenza! ¡Un caballero sucio!». Mientras se frota la visera con el guantelete, cruzas de puntillas hasta la puerta.',
@@ -1047,7 +1049,8 @@ s7c:{tit:'Sir Clanc, la armadura gruñona',accion:1,combate:'clanc',autoCombate:
   {si:'choque-clanc',t:'**TÚ:** Ha sido sin querer…'},
   {si:'choque-clanc',t:'**SIR CLANC:** ¡Sin querer, dice! ¡En mis tiempos se pedía perdón con una reverencia de tres vueltas!'},
   {no:'choque-clanc',t:'**SIR CLANC:** ¡Alto ahí, renacuajo! Nadie sale de mi sala de baile sin medirse con Sir Clanc. ¡En guardia!'},
-  'Las demás armaduras hacen corro para mirar. Alguna aplaude: clanc, clanc. Otra se sienta en el suelo, como si fuera al teatro.'],
+  'Las demás armaduras hacen corro para mirar. Alguna aplaude: clanc, clanc. Otra se sienta en el suelo, como si fuera al teatro.',
+  '**SIR CLANC:** Pero en mi sala no se pelea con espadas. ¡Aquí los duelos se bailan! Yo hago los pasos y tú los repites. Tres bailes, cada uno más difícil. Y cada vez que te equivoques… ¡te piso!'],
  ops:[]},
 s8:{tit:'La escalera que no se está quieta',img:'escenas/s8-escaleras.png',
  texto:[
@@ -1821,6 +1824,7 @@ function pintarCombate(){
   const cb=S.cb,E=ENEMIGOS[cb.id];
   let h='<div class="registro">'+cb.log+'</div>';
   if(cb.fin){h+='<div class="opciones">'+(cb.fin.agotado?'<button class="op seguir" id="bSiesta">😴 Echarte una siesta</button>':'<button class="op seguir" id="bFinCombate">Seguir ▶</button>')+'</div>';return h}
+  if(E.baile)return h+pintarBaile();
   const a=arma(),o=a?OBJ[a]:null,est=o?o.arma.est:'fuerza',mod=(o?o.arma.mod:-1)+modTirada(null,est).total;
   const b=[];
   b.push(['atacar','pelea',o?ICON[a]?icono(a,'ic'):o.e:'👊','Atacar '+(o?'con '+o.n.toLowerCase():'a puñetazos'),'🎲 '+NOMEST[est]+' '+sgn(mod)+' · '+tipoTxt(o?o.arma.tipo:'golpe')]);
@@ -1847,6 +1851,51 @@ function pintarCombate(){
   h+='<p class="nota">Cada turno eliges una acción. Si te quedas sin ❤️, te quedas sin fuerzas y tendrás que volver a empezar la aventura.</p>';
   return h;
 }
+/* ---------- Duelo de baile (Sir Clanc) ----------
+   Andrés (26-11-2026): «el combate con la armadura me gustaría que fuera como el juego de memoria pero con pases de baile
+   […] cada vez que te equivocas te quita un corazón; si haces tres rutinas con éxito lo superas. La combinación va de sencilla a difícil.»
+   Sir Clanc enseña los pasos (se iluminan las flechas) y hay que repetirlos tocándolas. Huir sigue estando (regla de huir). */
+const PASOS={ar:['⬆️','adelante'],ab:['⬇️','atrás'],iz:['⬅️','izquierda'],de:['➡️','derecha']};
+const RUTINAS=[{n:3,v:900,t:'Primer baile: el paso del caballero (3 pasos)'},{n:5,v:750,t:'Segundo baile: el vals de las cacerolas (5 pasos)'},{n:7,v:620,t:'Tercer baile: la polca del dragón (7 pasos)'}];
+const BAILE_OK=['Sir Clanc asiente con el yelmo: «Hmm. No está mal… para un renacuajo». Las armaduras aplauden: clanc, clanc.','«¡Imposible! ¡Nadie hace el vals de las cacerolas a la primera!». Sir Clanc se rasca el yelmo, nervioso.'];
+const BAILE_MAL=['¡Paso equivocado! Sir Clanc te pisa con su bota de hierro: ¡CLONC!','¡Por el otro lado! Sir Clanc te da un pisotón que te deja el pie como una tortita.','¡Ay! Chocas con la barriga de Sir Clanc: ¡DOOONG! Ves estrellitas de colores.'];
+function nuevaRutina(){const cb=S.cb,R=RUTINAS[cb.rut||0],k=Object.keys(PASOS);cb.seq=[];
+  for(let i=0;i<R.n;i++){let p;do{p=k[Math.floor(Math.random()*4)]}while(i>0&&p===cb.seq[i-1]&&Math.random()<.6);cb.seq.push(p)}
+  cb.pos=0;cb.fase='listo'}
+function pintarBaile(){const cb=S.cb;if(cb.rut==null){cb.rut=0;cb.errores=0;nuevaRutina()}
+  const R=RUTINAS[cb.rut];
+  const est='<style>.pad-baile{display:grid;grid-template-columns:repeat(3,minmax(70px,110px));grid-template-rows:repeat(3,minmax(70px,110px));gap:10px;justify-content:center;margin:14px auto}'+
+   '.pad-baile button{font-size:2.6em;border-radius:22px;border:3px solid #8a5a2b;background:#f7ecd2;box-shadow:0 4px 0 #8a5a2b;cursor:pointer;transition:transform .1s,background .1s}'+
+   '.pad-baile button:disabled{opacity:.55;cursor:default}.pad-baile button.luz{background:#ffd54a;transform:scale(1.12);opacity:1;box-shadow:0 0 18px #ffb300}'+
+   '.pad-baile button.bien{background:#b9e0a5}.pad-baile button.mal{background:#f3b7a8}.pad-baile .centro{display:flex;align-items:center;justify-content:center;font-size:2.4em}'+
+   '.baile-marcas{text-align:center;font-size:1.6em;letter-spacing:6px;margin:6px 0}.baile-pasos{text-align:center;font-size:1.3em;min-height:1.6em}</style>';
+  const marca=[0,1,2].map(i=>i<cb.rut?'⭐':'☆').join('');
+  let h=est+'<div class="baile-marcas">'+marca+'</div><p style="text-align:center"><b>💃 '+esc(R.t)+'</b></p>';
+  const yo=cb.fase==='tu';
+  h+='<p class="baile-pasos" id="baileInfo">'+(cb.fase==='listo'?'Mira bien los pies de Sir Clanc.':cb.fase==='ver'?'Sir Clanc baila… ¡fíjate!':'¡Tu turno! Paso '+(cb.pos+1)+' de '+cb.seq.length+' '+'🦶'.repeat(cb.pos))+'</p>';
+  const bt=k=>'<button id="bp-'+k+'" data-baile="'+k+'" aria-label="'+PASOS[k][1]+'" '+(yo?'':'disabled')+'>'+PASOS[k][0]+'</button>';
+  h+='<div class="pad-baile"><span></span>'+bt('ar')+'<span></span>'+bt('iz')+'<span class="centro">🦶</span>'+bt('de')+'<span></span>'+bt('ab')+'<span></span></div>';
+  h+='<div class="opciones">';
+  if(cb.fase==='listo')h+='<button class="op seguir" data-baile="ver"><span class="ico">👀</span><span class="txt">Mirar los pasos de Sir Clanc</span><span class="tag">'+R.n+' pasos</span></button>';
+  h+='<button class="op" data-cb="huir"><span class="ico">🏃</span><span class="txt">Huir (sale siempre bien)</span><span class="tag">'+(S.eq.cuerpo==='delantal'?'sin tirada · te quedas con 1 ❤️ (el delantal te salva el equipo)':'sin tirada · te quedas con 1 ❤️ y pierdes un objeto')+'</span></button></div>';
+  h+='<p class="nota">Cada paso equivocado te quita 1 ❤️ y Sir Clanc vuelve a enseñarte el baile. Con tres bailes bien hechos, ganas el duelo.</p>';
+  return h}
+async function baileVer(){const cb=S.cb;if(ocupado||!cb||cb.fase==='ver')return;ocupado=true;cb.fase='ver';refrescarEscena();
+  const v=RUTINAS[cb.rut].v,sl=ms=>new Promise(r=>setTimeout(r,ms));await sl(500);
+  for(const p of cb.seq){const b=document.getElementById('bp-'+p);if(b)b.classList.add('luz');await sl(v);if(b)b.classList.remove('luz');await sl(v*.35)}
+  cb.fase='tu';cb.pos=0;ocupado=false;guardar();refrescarEscena()}
+function bailePaso(k){const cb=S.cb;if(ocupado||!cb||cb.fase!=='tu')return;
+  const b=document.getElementById('bp-'+k);
+  if(k===cb.seq[cb.pos]){cb.pos++;if(b){b.classList.add('bien');setTimeout(()=>b.classList.remove('bien'),250)}
+    if(cb.pos<cb.seq.length){const i=document.getElementById('baileInfo');if(i)i.textContent='¡Tu turno! Paso '+(cb.pos+1)+' de '+cb.seq.length+' '+'🦶'.repeat(cb.pos);return}
+    cb.rut++;
+    if(cb.rut>=RUTINAS.length){ganar('Haces el último giro, una reverencia de tres vueltas… y Sir Clanc se queda sin aliento (y eso que no respira). «¡Bravo, renacuajo! ¡Nadie bailaba así desde mis tiempos!». Te hace otra reverencia y te abre la puerta. Las armaduras aplauden: ¡CLANC, CLANC, CLANC!');guardar();refrescarEscena();return}
+    cb.log=BAILE_OK[cb.rut-1];galleta('verde','¡Baile superado!','',cb.rut+' de 3 ⭐');nuevaRutina();guardar();refrescarEscena();return}
+  if(b)b.classList.add('mal');
+  S.vida--;cb.errores++;cb.log=BAILE_MAL[(cb.errores-1)%BAILE_MAL.length]+' Pierdes 1 ❤️. Sir Clanc vuelve a empezar el baile.';
+  galleta('roja','¡Paso equivocado!','','Pierdes 1 ❤️.');pintarHUD();
+  if(comprobarCombate()){guardar();refrescarEscena();return}
+  cb.pos=0;cb.fase='listo';guardar();setTimeout(refrescarEscena,350)}
 function herirEnemigo(n){const cb=S.cb,E=ENEMIGOS[cb.id];const t=[];for(let i=0;i<n&&cb.ev>0;i++){cb.ev--;t.push(E.heridasE[Math.min(cb.hE++,E.heridasE.length-1)])}return t.join(' ')}
 function recibir(){
   const cb=S.cb,E=ENEMIGOS[cb.id];
@@ -1896,7 +1945,7 @@ async function accionCombate(k){
       else if(k==='burbuja'){cb.bloqueo=true;t+='Una burbuja brillante te rodea. El siguiente golpe rebotará.';galleta(col,tit,'','Conjuro «Burbuja»')}
       else{ganar(t+'¡PLOF! '+E.n+' se convierte en una rana con corona de dedal y se va saltando: «¡Croac!».');galleta(col,tit,'','Conjuro «Ranita»');return fin2()}}}
   else if(k.startsWith('cin:')){const slot=k.slice(4),id=S.eq[slot];
-    if(id==='bollo'){quitarObjeto('bollo');S.vida=Math.min(S.vmax,S.vida+1);t='Te comes el bollo de canela de un bocado. Recuperas 1 ❤️.'+(quitarComp('hipo-rana')?' ¡Y se te quita el hipo!':'');galleta('verde','¡Ñam!','','+1 ❤️')}
+    if(id==='bollo'){quitarObjeto('bollo');S.vida=Math.min(S.vmax,S.vida+1);extraComida();t='Te comes el bollo de canela de un bocado. Recuperas 1 ❤️.'+(quitarComp('hipo-rana')?' ¡Y se te quita el hipo!':'');galleta('verde','¡Ñam!','','+1 ❤️')}
     else if(id==='pocion'){quitarObjeto('pocion');ocupado=true;const n=await beberPocion();ocupado=false;t='Te bebes la poción de un trago. Sabe a fresa y a calcetín limpio. Recuperas '+n+' ❤️.'+(quitarComp('hipo-rana')?' ¡Y se te quita el hipo!':'')}
     else if(id==='harina'){quitarObjeto('harina');cb.aturdido=true;t='¡FLUF! Le lanzas la harina a la cara. «¡ACHÍS!». '+E.n+' estornuda y pierde un turno.';galleta('verde','¡Harina a la cara!','','Pierde un turno.')}
     else if(id==='campanilla'||id==='sonajero'){quitarObjeto(id);ganar('Tilín, tilín. '+E.n+' bosteza, se acurruca y se queda dormido.');return fin2()}
@@ -2212,11 +2261,11 @@ function guardarSel(){
   S.eq[sel.s]=null;S.moch.push(id);S.magia=Math.min(S.magia,magiaMax());sel=null;
   panelSel(esc(o.n)+': a la mochila.');guardar();pintarEquipo();pintarHUD();refrescarEscena()}
 async function usarSel(){if(ocupado)return;const id=refId(sel);const hipo=S.comp.includes('hipo-rana');
-  if(id==='bollo'){quitarRef(sel);S.vida=Math.min(S.vmax,S.vida+1);quitarComp('hipo-rana');galleta('verde','¡Ñam!','','Te comes el bollo de canela. +1 ❤️'+(hipo?'<br>¡Y se te quita el hipo de rana!':''))}
+  if(id==='bollo'){quitarRef(sel);S.vida=Math.min(S.vmax,S.vida+1);extraComida();quitarComp('hipo-rana');galleta('verde','¡Ñam!','','Te comes el bollo de canela. +1 ❤️'+(hipo?'<br>¡Y se te quita el hipo de rana!':''))}
   else if(id==='pocion'){quitarRef(sel);sel=null;cerrar();ocupado=true;await beberPocion(hipo);ocupado=false;quitarComp('hipo-rana')}
   sel=null;modoComb=false;ayuda(AYUDA0);guardar();pintarEquipo();pintarHUD();refrescarEscena()}
 /* Poción de curación: 1d6 ❤️, con el dado de hueso */
-async function beberPocion(hipo){const [a]=await tirarDados(true);const antes=S.vida;S.vida=Math.min(S.vmax,S.vida+a);const n=S.vida-antes;
+async function beberPocion(hipo){const [a]=await tirarDados(true);const antes=S.vida;S.vida=Math.min(S.vmax,S.vida+a);const n=S.vida-antes;extraComida();
   galleta('verde','🧪 Poción de curación','🎲 '+a,'Recuperas '+n+' ❤️'+(n<a?' (ya estás a tope)':'')+'.'+(hipo?'<br>¡Y se te quita el hipo de rana!':''));pintarHUD();return n}
 function tirarSel(){const id=refId(sel);quitarRef(sel);S.suelo.push(id);sel=null;modoComb=false;ayuda(esc(nombreObj(id))+' está en el suelo. Si te vas de aquí, se quedará.');guardar();pintarEquipo();refrescarEscena()}
 function quitarRef(r){const id=refId(r);if(r.loc==='m'){S.moch.splice(r.i,1);if(S.mpos)S.mpos.splice(r.i,1)}else if(r.loc==='s')S.suelo.splice(r.i,1);else S.eq[r.s]=null;
@@ -2303,7 +2352,7 @@ function pintarHabil(){
     h+='<p><b>'+tr.ico+' Truco «'+tr.n+'»:</b> quedan '+S.truco+'. '+esc(tr.d)+'</p>';
     for(const [k,x] of Object.entries(HABIL)){const t=S.habil.includes(k);
       let btn=t?'<b>✔️</b>':'<button class="btn" data-habil="'+k+'" '+(S.xp>=x.xp?'':'disabled')+'>'+x.xp+' ⭐</button>';
-      h+='<div class="conjuro"><span class="e">'+x.e+'</span><div style="flex:1"><b>'+esc(x.n)+'</b><br><small>'+esc(x.d)+'</small><div id="ent-'+k+'"></div></div>'+btn+'</div>'}
+      h+='<div class="conjuro"><span class="e">'+x.e+'</span><div style="flex:1"><b>'+esc(x.n)+'</b>'+(x.nuevo?' <span style="background:#f6dc8a;border-radius:8px;padding:0 6px;font-size:.8em">¡Nueva!</span>':'')+'<br><small>'+esc(x.d)+'</small><div id="ent-'+k+'"></div></div>'+btn+'</div>'}
     h+='<p class="nota">Son caras a propósito: en un librojuego da para una. Cada una se compra una sola vez.</p>';
   }
   h+=pintarDiario();
@@ -2342,6 +2391,8 @@ function pintarComps(){
   if(!S.comp.length)return h+(S.prox?'':'<p class="nota" style="margin-top:0">Ahora mismo no tienes ninguna complicación pendiente.</p>');
   return h+S.comp.map(k=>{const c=COMP[k];return '<div class="comp"><span class="e">'+c.e+'</span><div><b>'+esc(c.n)+'</b><small>'+esc(c.ef)+'</small><small><i>Pista: '+esc(c.pista)+'</i></small></div></div>'}).join('');
 }
+/* Estómago de hierro: comer o beber cura 1 ❤️ más */
+function extraComida(){if(S.habil.includes('estomago')&&S.vida<S.vmax){S.vida++;setTimeout(()=>{galleta('morada','🍲 Estómago de hierro','','+1 ❤️ más');pintarHUD()},1700)}}
 function comprarHabil(k){
   const x=HABIL[k];if(S.xp<x.xp||S.habil.includes(k))return;
   if(k==='entrenamiento'){const d=$('ent-entrenamiento');d.innerHTML='<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">'+APT.map(e=>'<button class="btn" data-ent="'+e+'" '+(S.est[e]>=3?'disabled':'')+'>'+ICOEST[e]+' '+NOMEST[e]+'</button>').join('')+'</div>';
@@ -2364,6 +2415,7 @@ document.addEventListener('click',e=>{
   if(document.body.classList.contains('quiz-on')&&!e.target.closest('.quiz'))return;
   const d=e.target.closest('[data-decir]');if(d){decir(d.dataset.decir);burbujaTrad(d);return}
   const o=e.target.closest('[data-op]');if(o&&!o.disabled){elegir(+o.dataset.op);return}
+  const bl=e.target.closest('[data-baile]');if(bl){if(bl.dataset.baile==='ver')baileVer();else bailePaso(bl.dataset.baile);return}
   const c=e.target.closest('[data-cb]');if(c){accionCombate(c.dataset.cb);return}
   const pg=e.target.closest('[data-preg]');if(pg){abrirCharla(+pg.dataset.preg);return}
   const p=e.target.closest('[data-pelea]');if(p){empezarCombate();guardar();pintarEscena();return}
