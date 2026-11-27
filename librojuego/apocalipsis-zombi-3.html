@@ -336,6 +336,11 @@ body.fondo-web .sub{color:#33241b}
 .dz-suma{display:block;font-size:13px;opacity:.85;margin-bottom:2px}
 .dz-tit{display:block;font-size:22px;font-weight:900;text-transform:uppercase}
 @media (max-width:600px){.dz-galleta{top:76px;font-size:14px}}
+
+/* Arreglo móvil 27-11 (INSTAGRAM): que la ficha del personaje quepa en pantallas estrechas */
+.form>*{min-width:0}
+@media (max-width:520px){.protas{grid-template-columns:repeat(auto-fill,minmax(80px,1fr))}.prota{min-width:0}.prota img{width:100%;height:auto;max-height:92px}}
+@media (max-width:440px){.apt-fila{grid-template-columns:34px minmax(0,1fr)}.apt-fila .niv{grid-column:1/-1}.niv button{flex:1;width:auto;min-height:44px}}
 </style>
 </head>
 <body>
