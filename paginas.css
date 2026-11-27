@@ -1,0 +1,108 @@
+/* Rumbo al Saber · estilos de las páginas sueltas (Empieza aquí y Ayuda) · Web R22
+   Mismo aspecto que la portada: crema, Fraunces + Nunito y botones de plástico. Pensado primero para el móvil. */
+:root{
+  --cream:#f6efe4; --paper:#fbf7f0; --sand:#ecdfca;
+  --clay:#e8622a; --clay-d:#b8471a; --clay-hi:#ff8a4f;
+  --ink:#33241b; --ink2:#6d5747; --line:#dccbb2;
+  --gold:#d9a43e; --sea:#3f8c8a; --ok:#21a06a; --ok-d:#15754c; --no:#c8452c;
+  --display:"Fraunces",Georgia,serif;
+  --body:"Nunito",ui-rounded,"Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--clay-d)}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:0}
+h1{font-size:clamp(30px,7.2vw,46px)}
+h1 em,h2 em{font-style:italic;color:var(--clay);font-weight:600}
+h2{font-size:clamp(24px,5.4vw,32px);margin-top:38px}
+h3{font-size:21px;margin-top:22px}
+p{margin:12px 0}
+.lead{font-size:20px;color:var(--ink2)}
+
+/* cabecera */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;max-width:720px;margin:0 auto}
+.top img{height:46px;width:auto}
+.top a.volver{font-weight:800;font-size:15px;text-decoration:none;color:var(--ink2);white-space:nowrap}
+
+/* botones grandes */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;border:0;cursor:pointer;
+  font:800 19px var(--body);text-decoration:none;text-align:center;padding:14px 20px;border-radius:999px;color:#fff;
+  background:linear-gradient(180deg,var(--clay-hi),var(--clay) 62%);text-shadow:0 1px 0 rgba(0,0,0,.18);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -2px 0 rgba(0,0,0,.1),0 6px 0 var(--clay-d),0 12px 12px -8px rgba(50,20,5,.45);
+  transition:transform .12s ease,box-shadow .12s ease;margin:6px 0 12px}
+.btn:active{transform:translateY(5px);box-shadow:inset 0 2px 0 rgba(255,255,255,.4),0 1px 0 var(--clay-d)}
+.btn.ghost{background:linear-gradient(180deg,#fffdf8,#f1e7d6 62%);color:var(--ink);text-shadow:none;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(0,0,0,.06),0 6px 0 #c8b08c,0 12px 12px -8px rgba(50,20,5,.35)}
+.btn.ghost:active{box-shadow:inset 0 2px 0 rgba(255,255,255,.4),0 1px 0 #c8b08c}
+.btn:focus-visible,.op:focus-visible,a:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+
+/* tarjetas */
+.card{background:var(--paper);border:2px solid var(--line);border-radius:26px;padding:20px;margin:18px 0;
+  box-shadow:0 14px 26px -18px rgba(80,40,15,.45)}
+.card h2,.card h3{margin-top:0}
+.card .pic{border-radius:18px;margin:0 auto 14px;background:var(--sand)}
+.card .pic.alta{max-height:230px;width:auto}
+.card p{margin:8px 0 12px;color:var(--ink2)}
+.tag{display:inline-block;font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-d);margin-bottom:6px}
+
+/* portada de «Empieza aquí» */
+.hola{text-align:center;padding:8px 0 4px}
+.hola p{max-width:30em;margin-left:auto;margin-right:auto}
+
+/* artículos de ayuda */
+.art{padding-bottom:10px}
+.art .who{display:flex;align-items:flex-end;gap:14px;margin:18px 0 6px}
+.art .who img{height:150px;width:auto;flex:none}
+.art .who .bocadillo{background:var(--paper);border:2px solid var(--line);border-radius:20px 20px 20px 6px;padding:12px 16px;font-weight:700}
+.resumen{background:#fff8e6;border:2px solid #efd58f;border-radius:20px;padding:14px 18px;margin:18px 0}
+.resumen b{color:#7a5310}
+ol.pasos{padding:0;margin:14px 0;list-style:none;counter-reset:p}
+ol.pasos li{counter-increment:p;position:relative;padding:12px 14px 12px 62px;margin:10px 0;background:var(--paper);border:2px solid var(--line);border-radius:18px}
+ol.pasos li::before{content:counter(p);position:absolute;left:12px;top:12px;width:38px;height:38px;border-radius:50%;
+  background:var(--clay);color:#fff;font:800 20px var(--display);display:flex;align-items:center;justify-content:center}
+.ej{font-family:var(--display);font-size:26px;font-weight:700;text-align:center;margin:10px 0}
+.ej b{color:var(--clay)}
+.nota{font-size:16px;color:var(--ink2)}
+
+/* ejercicio */
+.reto{background:#fff;border:3px solid var(--clay);border-radius:26px;padding:18px;margin:22px 0}
+.reto .cab{display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:800;color:var(--clay-d);font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.reto .ctx{background:var(--cream);border-radius:16px;padding:12px 14px;margin:12px 0 0;font-size:18px}
+.reto .preg{font-family:var(--display);font-weight:700;font-size:clamp(24px,6vw,32px);text-align:center;margin:16px 0 12px;line-height:1.2}
+.reto .ops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reto .ops.una{grid-template-columns:1fr}
+.op{min-height:64px;border:3px solid var(--line);border-radius:18px;background:var(--paper);color:var(--ink);cursor:pointer;
+  font:800 22px var(--body);padding:10px 12px;transition:transform .1s}
+.ops.una .op{font-size:18px;text-align:left;padding:12px 16px}
+.op:active{transform:scale(.97)}
+.op.bien{background:#dff4e8;border-color:var(--ok);color:var(--ok-d)}
+.op.mal{background:#fbe3dc;border-color:var(--no);color:#8c2b17}
+.op:disabled{cursor:default}
+.reto .porque{min-height:1.6em;margin:14px 0 4px;font-weight:700;text-align:center}
+.reto .porque.bien{color:var(--ok-d)}
+.reto .porque.mal{color:#8c2b17}
+.reto .sig{margin-top:10px}
+.reto .fin{text-align:center}
+.reto .fin .nota-fin{font-family:var(--display);font-size:44px;font-weight:700;color:var(--clay)}
+.puntos{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:12px 0}
+.puntos .grupo{display:grid;grid-template-columns:repeat(4,12px);gap:4px;padding:8px;border:2px dashed var(--line);border-radius:12px;background:var(--cream)}
+.puntos .grupo i{width:12px;height:12px;border-radius:50%;background:var(--clay)}
+
+/* lista de páginas de ayuda */
+.lista a{display:block;position:relative;padding-right:52px!important;text-decoration:none;color:var(--ink);background:var(--paper);border:2px solid var(--line);border-radius:20px;padding:16px 18px;margin:12px 0;font-weight:800;font-size:20px}
+.lista a span{display:block;font-weight:600;font-size:16px;color:var(--ink2);margin-top:2px}
+.lista a::after{content:"→";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--clay);font-size:24px}
+
+/* pie */
+footer{margin-top:40px;padding:22px 18px 34px;border-top:2px solid var(--line);text-align:center;font-size:15px;color:var(--ink2)}
+footer a{color:var(--ink2)}
+
+@media(min-width:700px){
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .dos .card{margin:0 0 18px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
