@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumbo al Saber</title>
-<meta name="version" content="rumbo-web-R21 demo-V.1.19">
+<meta name="version" content="rumbo-web-R23 demo-V.1.19">
 <meta name="description" content="Rumbo al Saber: la app que acompaña a tu hijo en 4.º de Primaria. Currículo oficial LOMLOE explicado con infografías y voz, seguimiento para la familia, ajustes para la dislexia y el TDAH, sin anuncios. Una plataforma que suma un curso nuevo cada año.">
 <link rel="icon" href="img/libro.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,6 +58,13 @@ section{position:relative}
 
 .tiendas{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:14px 0 -6px -12px}
 .tiendas[hidden],.tienda[hidden]{display:none}
+.pronto{flex:0 0 100%;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:2px 0 4px;font:800 16px var(--body);color:var(--ink)}
+.pronto[hidden]{display:none}
+.pronto .et{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--clay);padding:6px 13px;border-radius:99px;white-space:nowrap}
+.pronto .gr{display:inline-flex;gap:8px;flex-wrap:nowrap}
+.pronto .ti{display:inline-flex;align-items:center;gap:7px;background:#fff;border:2px solid var(--line);border-radius:14px;padding:8px 14px;font-size:17px;white-space:nowrap}
+.pronto .ti svg{width:18px;height:18px;flex:none}
+@media(max-width:380px){.pronto .ti{font-size:15px;padding:7px 10px}}
 .tienda{display:inline-block;line-height:0;border-radius:14px;transition:transform .12s ease}
 .tienda:hover{transform:translateY(-2px)}
 .tienda img{height:84px;width:auto;display:block}
@@ -923,6 +930,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
       <p class="lead reveal d2" data-ca="Acompanya el teu fill o filla a 4t de Primària: li explica el currículum oficial amb infografies i veu, et mostra com avança i premia el seu esforç en un món de fantasia en 3D. No té anuncis i cada infant va al seu ritme.">Acompaña a tu hijo o hija en 4.º de Primaria: le explica el currículo oficial con infografías y voz, te enseña cómo avanza y premia su esfuerzo en un mundo de fantasía en 3D. No tiene anuncios y cada niño va a su ritmo.</p>
       <div class="ctas reveal d3">
         <a class="btn" href="app/rumbo-al-saber-DEMO-N6.html" data-ca="▶ Prova la demo">▶ Prueba la demo</a>
+        <p class="pronto" data-pronto data-ca='<span class="et">Pròximament a</span> <span class="gr"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Google Play</span> <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>App Store</span></span>'><span class="et">Próximamente en</span> <span class="gr"><span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>Google Play</span> <span class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>App Store</span></span></p>
         <a class="btn ghost" href="#ventajas" data-ca="Què aporta a la família">Qué aporta a la familia</a>
         <a class="btn ghost" href="#app" data-ca="Mira l'app per dins">Mira la app por dentro</a>
       </div>
@@ -1573,7 +1581,7 @@ footer small a,.galleta .glegal a{color:inherit;text-decoration:underline;text-u
   <div class="logos">
     <img class="rs" src="img/logo_rumbo.webp" alt="Rumbo al Saber">
   </div>
-  <small>© 2026 Rumbo al Saber · <span data-ca="Web R21">Web R21</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a><a class="ftig" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg><span>@cole.rumboalsaber</span></a></small>
+  <small>© 2026 Rumbo al Saber · <span data-ca="Web R23">Web R23</span> · <a href="privacidad.html" data-ca="Política de privacitat">Política de privacidad</a><a class="ftig" href="https://www.instagram.com/cole.rumboalsaber/" target="_blank" rel="noopener" aria-label="Instagram de Rumbo al Saber: @cole.rumboalsaber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg><span>@cole.rumboalsaber</span></a></small>
 </footer>
 
 <script>
@@ -1600,6 +1608,7 @@ $$('[data-coin]').forEach(buildCoin);
    Escribe aquí el enlace de la ficha cuando la app esté publicada; con el enlace vacío, el distintivo no se ve. */
 const TIENDAS={gplay:""};
 $$('[data-tienda]').forEach(a=>{const u=TIENDAS[a.dataset.tienda];if(u){a.href=u;a.hidden=false;a.closest('[data-tiendas]').hidden=false}});
+if(Object.values(TIENDAS).some(Boolean))$$('[data-pronto]').forEach(e=>e.hidden=true);
 
 /* ---------- idioma ---------- */
 $$('[data-ca]').forEach(el=>el.dataset.es=el.innerHTML);
